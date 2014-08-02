@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		800FD8CC198D37BA00F07127 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FD8CB198D37BA00F07127 /* main.swift */; };
+		800FD8CE198D37BA00F07127 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FD8CD198D37BA00F07127 /* Document.swift */; };
+		800FD8D1198D37BA00F07127 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800FD8CF198D37BA00F07127 /* Document.xib */; };
+		800FD8D3198D37BA00F07127 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800FD8D2198D37BA00F07127 /* Images.xcassets */; };
+		800FD8D6198D37BA00F07127 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800FD8D4198D37BA00F07127 /* MainMenu.xib */; };
+		800FD8E2198D37BA00F07127 /* PixelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FD8E1198D37BA00F07127 /* PixelAppTests.swift */; };
+		800FD8EE198D3D8E00F07127 /* PixelEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FD8ED198D3D8E00F07127 /* PixelEditorView.swift */; };
+		800FD8F0198D3F1400F07127 /* PixelEditorClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FD8EF198D3F1400F07127 /* PixelEditorClipView.swift */; };
+		80FCF8AE198D694D00B87341 /* PixelEditorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */; };
+		80FCF8B0198D6A3B00B87341 /* PixelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		800FD8DC198D37BA00F07127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 800FD8BE198D37BA00F07127 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 800FD8C5198D37BA00F07127;
+			remoteInfo = PixelApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		800FD8C6198D37BA00F07127 /* PixelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		800FD8CA198D37BA00F07127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		800FD8CB198D37BA00F07127 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		800FD8CD198D37BA00F07127 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		800FD8D0198D37BA00F07127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
+		800FD8D2198D37BA00F07127 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		800FD8D5198D37BA00F07127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		800FD8DB198D37BA00F07127 /* PixelAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		800FD8E0198D37BA00F07127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		800FD8E1198D37BA00F07127 /* PixelAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelAppTests.swift; sourceTree = "<group>"; };
+		800FD8ED198D3D8E00F07127 /* PixelEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorView.swift; path = "Pixel Editor/PixelEditorView.swift"; sourceTree = "<group>"; };
+		800FD8EF198D3F1400F07127 /* PixelEditorClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorClipView.swift; path = "Pixel Editor/PixelEditorClipView.swift"; sourceTree = "<group>"; };
+		80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorLayer.swift; path = "Pixel Editor/PixelEditorLayer.swift"; sourceTree = "<group>"; };
+		80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelPoint.swift; path = "Pixel Editor/PixelPoint.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		800FD8C3198D37BA00F07127 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800FD8D8198D37BA00F07127 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		800FD8BD198D37BA00F07127 = {
+			isa = PBXGroup;
+			children = (
+				800FD8C8198D37BA00F07127 /* PixelApp */,
+				800FD8DE198D37BA00F07127 /* PixelAppTests */,
+				800FD8C7198D37BA00F07127 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		800FD8C7198D37BA00F07127 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				800FD8C6198D37BA00F07127 /* PixelApp.app */,
+				800FD8DB198D37BA00F07127 /* PixelAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		800FD8C8198D37BA00F07127 /* PixelApp */ = {
+			isa = PBXGroup;
+			children = (
+				800FD8EC198D381000F07127 /* Pixel Format */,
+				800FD8EB198D380A00F07127 /* Pixel Editor */,
+				800FD8CD198D37BA00F07127 /* Document.swift */,
+				800FD8CF198D37BA00F07127 /* Document.xib */,
+				800FD8D2198D37BA00F07127 /* Images.xcassets */,
+				800FD8D4198D37BA00F07127 /* MainMenu.xib */,
+				800FD8C9198D37BA00F07127 /* Supporting Files */,
+			);
+			path = PixelApp;
+			sourceTree = "<group>";
+		};
+		800FD8C9198D37BA00F07127 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				800FD8CA198D37BA00F07127 /* Info.plist */,
+				800FD8CB198D37BA00F07127 /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		800FD8DE198D37BA00F07127 /* PixelAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				800FD8E1198D37BA00F07127 /* PixelAppTests.swift */,
+				800FD8DF198D37BA00F07127 /* Supporting Files */,
+			);
+			path = PixelAppTests;
+			sourceTree = "<group>";
+		};
+		800FD8DF198D37BA00F07127 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				800FD8E0198D37BA00F07127 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		800FD8EB198D380A00F07127 /* Pixel Editor */ = {
+			isa = PBXGroup;
+			children = (
+				800FD8ED198D3D8E00F07127 /* PixelEditorView.swift */,
+				800FD8EF198D3F1400F07127 /* PixelEditorClipView.swift */,
+				80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */,
+				80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */,
+			);
+			name = "Pixel Editor";
+			sourceTree = "<group>";
+		};
+		800FD8EC198D381000F07127 /* Pixel Format */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Pixel Format";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		800FD8C5198D37BA00F07127 /* PixelApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800FD8E5198D37BA00F07127 /* Build configuration list for PBXNativeTarget "PixelApp" */;
+			buildPhases = (
+				800FD8C2198D37BA00F07127 /* Sources */,
+				800FD8C3198D37BA00F07127 /* Frameworks */,
+				800FD8C4198D37BA00F07127 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PixelApp;
+			productName = PixelApp;
+			productReference = 800FD8C6198D37BA00F07127 /* PixelApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		800FD8DA198D37BA00F07127 /* PixelAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 800FD8E8198D37BA00F07127 /* Build configuration list for PBXNativeTarget "PixelAppTests" */;
+			buildPhases = (
+				800FD8D7198D37BA00F07127 /* Sources */,
+				800FD8D8198D37BA00F07127 /* Frameworks */,
+				800FD8D9198D37BA00F07127 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				800FD8DD198D37BA00F07127 /* PBXTargetDependency */,
+			);
+			name = PixelAppTests;
+			productName = PixelAppTests;
+			productReference = 800FD8DB198D37BA00F07127 /* PixelAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		800FD8BE198D37BA00F07127 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Tom Hancocks";
+				TargetAttributes = {
+					800FD8C5198D37BA00F07127 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					800FD8DA198D37BA00F07127 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 800FD8C5198D37BA00F07127;
+					};
+				};
+			};
+			buildConfigurationList = 800FD8C1198D37BA00F07127 /* Build configuration list for PBXProject "PixelApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 800FD8BD198D37BA00F07127;
+			productRefGroup = 800FD8C7198D37BA00F07127 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				800FD8C5198D37BA00F07127 /* PixelApp */,
+				800FD8DA198D37BA00F07127 /* PixelAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		800FD8C4198D37BA00F07127 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800FD8D1198D37BA00F07127 /* Document.xib in Resources */,
+				800FD8D3198D37BA00F07127 /* Images.xcassets in Resources */,
+				800FD8D6198D37BA00F07127 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800FD8D9198D37BA00F07127 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		800FD8C2198D37BA00F07127 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800FD8CE198D37BA00F07127 /* Document.swift in Sources */,
+				80FCF8B0198D6A3B00B87341 /* PixelPoint.swift in Sources */,
+				800FD8F0198D3F1400F07127 /* PixelEditorClipView.swift in Sources */,
+				80FCF8AE198D694D00B87341 /* PixelEditorLayer.swift in Sources */,
+				800FD8CC198D37BA00F07127 /* main.swift in Sources */,
+				800FD8EE198D3D8E00F07127 /* PixelEditorView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800FD8D7198D37BA00F07127 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800FD8E2198D37BA00F07127 /* PixelAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		800FD8DD198D37BA00F07127 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 800FD8C5198D37BA00F07127 /* PixelApp */;
+			targetProxy = 800FD8DC198D37BA00F07127 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		800FD8CF198D37BA00F07127 /* Document.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				800FD8D0198D37BA00F07127 /* Base */,
+			);
+			name = Document.xib;
+			sourceTree = "<group>";
+		};
+		800FD8D4198D37BA00F07127 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				800FD8D5198D37BA00F07127 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		800FD8E3198D37BA00F07127 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		800FD8E4198D37BA00F07127 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		800FD8E6198D37BA00F07127 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PixelApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		800FD8E7198D37BA00F07127 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PixelApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		800FD8E9198D37BA00F07127 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PixelApp.app/Contents/MacOS/PixelApp";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PixelAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		800FD8EA198D37BA00F07127 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PixelApp.app/Contents/MacOS/PixelApp";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PixelAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		800FD8C1198D37BA00F07127 /* Build configuration list for PBXProject "PixelApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800FD8E3198D37BA00F07127 /* Debug */,
+				800FD8E4198D37BA00F07127 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		800FD8E5198D37BA00F07127 /* Build configuration list for PBXNativeTarget "PixelApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800FD8E6198D37BA00F07127 /* Debug */,
+				800FD8E7198D37BA00F07127 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		800FD8E8198D37BA00F07127 /* Build configuration list for PBXNativeTarget "PixelAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				800FD8E9198D37BA00F07127 /* Debug */,
+				800FD8EA198D37BA00F07127 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 800FD8BE198D37BA00F07127 /* Project object */;
+}

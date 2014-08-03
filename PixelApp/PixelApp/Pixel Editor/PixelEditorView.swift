@@ -165,6 +165,16 @@ extension PixelEditorView: NSTableViewDataSource, NSTableViewDelegate {
         return nil
     }
     
+    func tableView(tableView: NSTableView!, setObjectValue object: AnyObject!, forTableColumn tableColumn: NSTableColumn!, row: Int) {
+        
+        let layer = pixelLayers[row]
+        
+        if tableColumn.identifier == "name" {
+            layer.name = object as String
+        }
+    }
+    
+    
     
     func tableViewSelectionDidChange(notification: NSNotification!) {
         let tableView = notification.object as NSTableView

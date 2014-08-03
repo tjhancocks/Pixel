@@ -16,6 +16,8 @@
 		800FD8E2198D37BA00F07127 /* PixelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FD8E1198D37BA00F07127 /* PixelAppTests.swift */; };
 		800FD8EE198D3D8E00F07127 /* PixelEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FD8ED198D3D8E00F07127 /* PixelEditorView.swift */; };
 		800FD8F0198D3F1400F07127 /* PixelEditorClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800FD8EF198D3F1400F07127 /* PixelEditorClipView.swift */; };
+		80486F54198E898F00B34D0E /* ColorSwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80486F53198E898F00B34D0E /* ColorSwatch.swift */; };
+		80486F56198E968500B34D0E /* ColorSwatchItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80486F55198E968500B34D0E /* ColorSwatchItemView.swift */; };
 		8059E425198E0E1E006E1253 /* PaneActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059E424198E0E1E006E1253 /* PaneActionBar.swift */; };
 		80FCF8AE198D694D00B87341 /* PixelEditorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */; };
 		80FCF8B0198D6A3B00B87341 /* PixelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */; };
@@ -45,6 +47,8 @@
 		800FD8E1198D37BA00F07127 /* PixelAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelAppTests.swift; sourceTree = "<group>"; };
 		800FD8ED198D3D8E00F07127 /* PixelEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorView.swift; path = "Pixel Editor/PixelEditorView.swift"; sourceTree = "<group>"; };
 		800FD8EF198D3F1400F07127 /* PixelEditorClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorClipView.swift; path = "Pixel Editor/PixelEditorClipView.swift"; sourceTree = "<group>"; };
+		80486F53198E898F00B34D0E /* ColorSwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSwatch.swift; path = "Color Swatch/ColorSwatch.swift"; sourceTree = "<group>"; };
+		80486F55198E968500B34D0E /* ColorSwatchItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSwatchItemView.swift; path = "Color Swatch/ColorSwatchItemView.swift"; sourceTree = "<group>"; };
 		8059E424198E0E1E006E1253 /* PaneActionBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaneActionBar.swift; path = View/PaneActionBar.swift; sourceTree = "<group>"; };
 		80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorLayer.swift; path = "Pixel Editor/PixelEditorLayer.swift"; sourceTree = "<group>"; };
 		80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelPoint.swift; path = "Pixel Editor/PixelPoint.swift"; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 		800FD8C8198D37BA00F07127 /* PixelApp */ = {
 			isa = PBXGroup;
 			children = (
+				80486F52198E896300B34D0E /* Color Swatch */,
 				8006FF67198E719200430E73 /* Categories */,
 				8059E423198E0E06006E1253 /* View */,
 				800FD8EC198D381000F07127 /* Pixel Format */,
@@ -152,6 +157,15 @@
 			children = (
 			);
 			name = "Pixel Format";
+			sourceTree = "<group>";
+		};
+		80486F52198E896300B34D0E /* Color Swatch */ = {
+			isa = PBXGroup;
+			children = (
+				80486F53198E898F00B34D0E /* ColorSwatch.swift */,
+				80486F55198E968500B34D0E /* ColorSwatchItemView.swift */,
+			);
+			name = "Color Swatch";
 			sourceTree = "<group>";
 		};
 		8059E423198E0E06006E1253 /* View */ = {
@@ -267,9 +281,11 @@
 				80FCF8B0198D6A3B00B87341 /* PixelPoint.swift in Sources */,
 				800FD8F0198D3F1400F07127 /* PixelEditorClipView.swift in Sources */,
 				80FCF8AE198D694D00B87341 /* PixelEditorLayer.swift in Sources */,
+				80486F56198E968500B34D0E /* ColorSwatchItemView.swift in Sources */,
 				800FD8CC198D37BA00F07127 /* main.swift in Sources */,
 				8006FF69198E71B000430E73 /* NSColor+Extensions.swift in Sources */,
 				800FD8EE198D3D8E00F07127 /* PixelEditorView.swift in Sources */,
+				80486F54198E898F00B34D0E /* ColorSwatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

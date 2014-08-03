@@ -175,7 +175,7 @@
                                             </textField>
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3M-55-Cs4">
                                                 <rect key="frame" x="66" y="175" width="74" height="19"/>
-                                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" drawsBackground="YES" id="1xL-bZ-s6k">
+                                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="0" drawsBackground="YES" id="1xL-bZ-s6k">
                                                     <font key="font" metaFont="smallSystem"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -188,31 +188,6 @@
                                                     <action selector="takeIntValueFrom:" target="X3M-55-Cs4" id="o8K-7b-9Gf"/>
                                                 </connections>
                                             </stepper>
-                                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-GQ-hv3">
-                                                <rect key="frame" x="0.0" y="0.0" width="204" height="125"/>
-                                                <clipView key="contentView" id="dII-hp-j9M">
-                                                    <rect key="frame" x="1" y="1" width="248" height="158"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <collectionView id="DJ5-G0-4Ta">
-                                                            <rect key="frame" x="0.0" y="0.0" width="248" height="158"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            <connections>
-                                                                <outlet property="itemPrototype" destination="X62-Yg-2bW" id="oYm-Gj-kOF"/>
-                                                            </connections>
-                                                        </collectionView>
-                                                    </subviews>
-                                                </clipView>
-                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="kJf-9J-d4W">
-                                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </scroller>
-                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="LSy-ne-U9c">
-                                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </scroller>
-                                            </scrollView>
                                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-AY-NXB">
                                                 <rect key="frame" x="64" y="200" width="130" height="20"/>
                                                 <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="vZL-lz-x3U">
@@ -241,6 +216,32 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
+                                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYw-GQ-hv3">
+                                                <rect key="frame" x="0.0" y="0.0" width="204" height="125"/>
+                                                <clipView key="contentView" id="dII-hp-j9M">
+                                                    <rect key="frame" x="1" y="1" width="248" height="158"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <collectionView id="DJ5-G0-4Ta">
+                                                            <rect key="frame" x="0.0" y="0.0" width="248" height="158"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            <connections>
+                                                                <binding destination="6b4-s9-THS" name="content" keyPath="arrangedObjects" id="rgF-ef-esg"/>
+                                                                <outlet property="itemPrototype" destination="X62-Yg-2bW" id="oYm-Gj-kOF"/>
+                                                            </connections>
+                                                        </collectionView>
+                                                    </subviews>
+                                                </clipView>
+                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="kJf-9J-d4W">
+                                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="LSy-ne-U9c">
+                                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                            </scrollView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="9Eg-i3-1d7" firstAttribute="top" secondItem="o9w-av-hdv" secondAttribute="bottom" constant="79" id="2MA-Xq-7rk"/>
@@ -266,7 +267,7 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" id="HZR-Nn-8zA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="204" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="203" height="19"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -394,17 +395,42 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
-            <point key="canvasLocation" x="-151" y="60.5"/>
+            <point key="canvasLocation" x="-199" y="41.5"/>
         </window>
         <collectionViewItem id="X62-Yg-2bW">
             <connections>
                 <outlet property="view" destination="qOb-D2-ZIx" id="bRc-MR-MMv"/>
             </connections>
         </collectionViewItem>
-        <view id="qOb-D2-ZIx">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+        <view id="qOb-D2-ZIx" customClass="ColorSwatchItemView" customModule="PixelApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
             <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V8v-HQ-2b3">
+                    <rect key="frame" x="1" y="1" width="30" height="30"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="40N-TD-q5X"/>
+                    <connections>
+                        <binding destination="X62-Yg-2bW" name="value" keyPath="representedObject.previewImage" id="9SP-L0-TR8"/>
+                    </connections>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="V8v-HQ-2b3" secondAttribute="bottom" constant="1" id="9Lg-6j-OwC"/>
+                <constraint firstAttribute="trailing" secondItem="V8v-HQ-2b3" secondAttribute="trailing" constant="1" id="CAY-r1-Ddl"/>
+                <constraint firstItem="V8v-HQ-2b3" firstAttribute="leading" secondItem="qOb-D2-ZIx" secondAttribute="leading" constant="1" id="TOB-Pw-izA"/>
+                <constraint firstItem="V8v-HQ-2b3" firstAttribute="top" secondItem="qOb-D2-ZIx" secondAttribute="top" constant="1" id="kDh-YH-FQL"/>
+            </constraints>
+            <point key="canvasLocation" x="-368" y="403"/>
         </view>
+        <arrayController objectClassName="NSColor" id="6b4-s9-THS" userLabel="ColorSwatch Array">
+            <declaredKeys>
+                <string>previewImage</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="colorSwatch.colors" id="QT3-KE-tqd"/>
+            </connections>
+        </arrayController>
+        <userDefaultsController representsSharedInstance="YES" id="fUo-xn-rHS"/>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>

@@ -42,4 +42,19 @@ extension NSColor {
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }
     
+    
+    // Produce an image preview of the color
+    var previewImage: NSImage {
+        get {
+            let image = NSImage(size: NSSize(width: 64, height: 64))
+            image.lockFocus()
+            
+            self.setFill()
+            NSBezierPath(rect: NSRect(x: 0, y: 0, width: 64, height: 64)).fill()
+            
+            image.unlockFocus()
+            return image
+        }
+    }
+    
 }

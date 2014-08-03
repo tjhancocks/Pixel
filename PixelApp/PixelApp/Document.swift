@@ -26,6 +26,7 @@ class Document: NSDocument {
     
     // Colors Palette Pane
     @IBOutlet var colorPalettePane: NSCollectionView?
+    var colorSwatch = ColorSwatch()
     
 
     override func windowControllerDidLoadNib(aController: NSWindowController) {
@@ -35,6 +36,15 @@ class Document: NSDocument {
         documentEditorView = PixelEditorView(frame: NSRect(x: 0, y: 0, width: 320, height: 320))
         documentScrollView!.documentView = documentEditorView!
         documentEditorView!.layersTableView = layersTableView
+        
+        // Make sure the color palette is selectable, and set up an observe for
+        // its selection
+        colorPalettePane!.selectable = true
+        colorPalettePane!.allowsMultipleSelection = false
+        colorPalettePane!.addObserver(self,
+            forKeyPath: "selectionIndexes",
+            options: NSKeyValueObservingOptions.New,
+            context: nil)
     }
 
     override class func autosavesInPlace() -> Bool {
@@ -72,6 +82,19 @@ class Document: NSDocument {
         documentEditorView!.wantsPixelGrid = ((sender as NSButton).state == NSOnState)
     }
     
+    
+    
+    override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafePointer<()>) {
+        
+        // Listen for any changes to the selection of the color palette
+        if (object as NSCollectionView) == colorPalettePane && keyPath == "selectionIndexes" {
+            let selectedIndex = (change["new"] as NSIndexSet).firstIndex
+            if let color = colorSwatch.color(atIndex: selectedIndex)? {
+                documentEditorView!.brushColor = color
+            }
+        }
+        
+    }
 }
 
 

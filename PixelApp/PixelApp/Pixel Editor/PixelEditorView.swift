@@ -35,14 +35,16 @@ class PixelEditorView: NSView {
     }
     
     
-    
-    init(frame frameRect: NSRect) {
+    /// Instantiate a new editor view with the specified frame size and the actual pixel grid size
+    init(frame frameRect: NSRect, withSize size: CGSize) {
         pixelLayers = [PixelLayer]()
+        actualSize = size
         super.init(frame: frameRect)
         addPixelLayer()
     }
     
     
+    /// Provides the actual on screen dimensions of a pixel as they are displayed within the canvas
     var cellSize: CGSize {
         return CGSize(width: frame.size.width / actualSize.width, height: frame.size.height / actualSize.height)
     }
@@ -73,8 +75,6 @@ class PixelEditorView: NSView {
             drawPixelGrid()
         }
     }
-    
-    
     
     override func mouseDown(theEvent: NSEvent!) {
         drawPixel(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil))
@@ -117,6 +117,13 @@ class PixelEditorView: NSView {
     func removePixelLayer(atIndex index: Int) {
         pixelLayers.removeAtIndex(index)
         setNeedsDisplayInRect(bounds)
+        layersTableView?.reloadData()
+    }
+    
+    /// Rename a specific pixel layer to the given name
+    func setName(#name: String, ofLayerAtIndex index: Int) {
+        let pixelLayer = pixelLayers[index]
+        pixelLayer.name = name
         layersTableView?.reloadData()
     }
     

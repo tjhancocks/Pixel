@@ -7,17 +7,23 @@ A simple pixel art editor written in Swift.
 Currently this editor is extremely basic. You can not yet change the size of the canvas, zoom-in or out (it's set to 1000% currently) and you can only paint in one colour. However this is basically the
 foundation work that is being laid for a tool that will be used by myself for [QuantumCarrot](http://quantumcarrot.com) in the future.
 
-Current/Planned features of the editor are:
+Current features of the editor are:
 
-- Colours (Obviously, interface for them is present, but not functional)
-- Brush/Pen Sizes (interface for them is present, but not functional)
+- Colour Selection
+- Layers (Naming, Addition, Deletion)
+- New Documents (Naming, Canvas Sizing, Base Image - not quite functional yet)
+
+
+Planned features of the editor include:
+
+- Brush/Pen Sizes
 - Shapes (Lines, Rectangles, Ovals, etc)
 - Flood Filling
-- Layers (Pretty much in - can not name or toggle layer visibility yet)
-- Custom Canvas sizes
-- Pixel file format to allow for layers to be saved
-- Export to PNG, JPG, etc
+- Layer Visibility
 - Layer Blending
+- Layer Opacity
+- Saving/Opening using a custom file format to allow the Colour Swatches and Layers to be saved
+- Export to PNG, JPG, etc
 
 
 ###Why?

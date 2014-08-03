@@ -10,10 +10,12 @@ import Cocoa
 
 class Document: NSDocument {
     
-    @IBOutlet var documentScrollView: NSScrollView?
+    // New Document Sheet
+    var newDocumentSheet: NewDocumentController?
     
     // Main Editor Area
     var documentEditorView: PixelEditorView?
+    @IBOutlet var documentScrollView: NSScrollView?
     @IBOutlet var pixelGridButton: NSButton?
     
     // Layers Pane
@@ -31,11 +33,19 @@ class Document: NSDocument {
 
     override func windowControllerDidLoadNib(aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
-                                    
-        // Create a new editor view for the document, and add it to the scroll view
-        documentEditorView = PixelEditorView(frame: NSRect(x: 0, y: 0, width: 320, height: 320))
-        documentScrollView!.documentView = documentEditorView!
-        documentEditorView!.layersTableView = layersTableView
+        
+        dispatch_after(500000, dispatch_get_main_queue()) {
+            self.newDocumentSheet = NewDocumentController()
+            self.newDocumentSheet!.parentWindow = aController.window
+            aController.window.beginSheet(self.newDocumentSheet!.window) {
+                (response) -> Void in
+                
+                self.createEditorCanvasView(name: self.newDocumentSheet!.documentName,
+                    ofSize: self.newDocumentSheet!.canvasSize,
+                    atScale: 10.0)
+            }
+        }
+        
         
         // Make sure the color palette is selectable, and set up an observe for
         // its selection
@@ -63,6 +73,16 @@ class Document: NSDocument {
     override func readFromData(data: NSData?, ofType typeName: String?, error outError: NSErrorPointer) -> Bool {
         outError.memory = NSError.errorWithDomain(NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         return false
+    }
+    
+    
+    /// Create a new canvas at the specified size and scale
+    func createEditorCanvasView(#name: String, ofSize size: CGSize, atScale scale: CGFloat) {
+        var canvasFrame = NSRect(x: 0, y: 0, width: size.width * scale, height: size.height * scale)
+        documentEditorView = PixelEditorView(frame: canvasFrame, withSize: size)
+        documentScrollView!.documentView = documentEditorView!
+        documentEditorView!.layersTableView = layersTableView
+        documentEditorView!.setName(name: name, ofLayerAtIndex: 0)
     }
     
     

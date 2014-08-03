@@ -35,9 +35,14 @@ extension NSColor {
     
     // Create a new NSColor from an Int32 encoded representation of a color
     convenience init(encodedInt32Value value: UInt32) {
-        let r: CGFloat = CGFloat(Int((value >> 16) & 0xFF) / 255)
-        let g: CGFloat = CGFloat(Int((value >> 8) & 0xFF) / 255)
-        let b: CGFloat = CGFloat(Int((value >> 0) & 0xFF) / 255)
+        
+        let rRaw = Int((value >> 16) & 0xFF)
+        let gRaw = Int((value >> 8) & 0xFF)
+        let bRaw = Int((value >> 0) & 0xFF)
+        
+        let r: CGFloat = CGFloat(CGFloat(rRaw) / 255.0)
+        let g: CGFloat = CGFloat(CGFloat(gRaw) / 255.0)
+        let b: CGFloat = CGFloat(CGFloat(bRaw) / 255.0)
         
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }

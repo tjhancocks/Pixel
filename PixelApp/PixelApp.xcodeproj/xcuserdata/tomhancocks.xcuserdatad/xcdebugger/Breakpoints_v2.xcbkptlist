@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixelApp/Categories/NSColor+Extensions.swift"
-            timestampString = "428774402.872728"
+            timestampString = "428778037.717363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "NSColor"
             landmarkType = "3">
          </BreakpointContent>

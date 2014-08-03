@@ -9,8 +9,8 @@ foundation work that is being laid for a tool that will be used by myself for [Q
 
 Current/Planned features of the editor are:
 
-- Colours (Obviously)
-- Brush/Pen Sizes
+- Colours (Obviously, interface for them is present, but not functional)
+- Brush/Pen Sizes (interface for them is present, but not functional)
 - Shapes (Lines, Rectangles, Ovals, etc)
 - Flood Filling
 - Layers (Pretty much in - can not name or toggle layer visibility yet)

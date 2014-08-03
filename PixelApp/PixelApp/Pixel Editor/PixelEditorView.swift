@@ -16,7 +16,11 @@ class PixelEditorView: NSView {
     
     // Canvas Settings
     var actualSize: CGSize = CGSize(width: 32, height: 32)
-    var wantsPixelGrid = true
+    var wantsPixelGrid: Bool = true {
+        didSet {
+            setNeedsDisplayInRect(bounds)
+        }
+    }
     var currentScaleFactor: CGFloat = 10
     
     // Layer Settings

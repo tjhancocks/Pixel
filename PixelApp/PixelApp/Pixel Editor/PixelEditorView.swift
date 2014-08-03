@@ -91,8 +91,8 @@ class PixelEditorView: NSView {
     /// It will use the current brush settings.
     func drawPixel(locationInView point: CGPoint) {
         // Convert the point to the actual pixel grid
-        let x = UInt(floor(point.x / currentScaleFactor))
-        let y = UInt(floor(point.y / currentScaleFactor))
+        let x = Int(floor(point.x / currentScaleFactor))
+        let y = Int(floor(point.y / currentScaleFactor))
         
         // Get the active layer
         let activeLayer = pixelLayers[activePixelLayer]
@@ -106,8 +106,7 @@ class PixelEditorView: NSView {
     /// Add a new layer to the canvas, using the actual final pixel size and current scale
     /// factor.
     func addPixelLayer() {
-        var pixelLayer = PixelLayer()
-        pixelLayer.size = actualSize
+        var pixelLayer = PixelLayer(size: actualSize)
         pixelLayer.scaleFactor = currentScaleFactor
         pixelLayers += [pixelLayer]
         layersTableView?.reloadData()

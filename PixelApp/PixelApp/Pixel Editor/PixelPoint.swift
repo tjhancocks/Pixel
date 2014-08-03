@@ -10,8 +10,8 @@ import Foundation
 
 // The Pixel Point structure is used to help reference specific points on a layer.
 struct PixelPoint: Hashable {
-    var x: UInt = 0
-    var y: UInt = 0
+    var x: Int = 0
+    var y: Int = 0
     
     var hashValue: Int {
         return "(\(x),\(y))".hashValue

@@ -13,7 +13,7 @@ Current/Planned features of the editor are:
 - Brush/Pen Sizes
 - Shapes (Lines, Rectangles, Ovals, etc)
 - Flood Filling
-- Layers (Basic work is currently in for this)
+- Layers (Pretty much in - can not name or toggle layer visibility yet)
 - Custom Canvas sizes
 - Pixel file format to allow for layers to be saved
 - Export to PNG, JPG, etc

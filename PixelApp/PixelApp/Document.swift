@@ -13,6 +13,8 @@ class Document: NSDocument {
     @IBOutlet var documentScrollView: NSScrollView?
     var documentEditorView: PixelEditorView?
     
+    @IBOutlet var layersTableView: NSTableView?
+    
                             
     init() {
         super.init()
@@ -26,6 +28,7 @@ class Document: NSDocument {
         // Create a new editor view for the document, and add it to the scroll view
         documentEditorView = PixelEditorView(frame: NSRect(x: 0, y: 0, width: 320, height: 320))
         documentScrollView!.documentView = documentEditorView!
+        documentEditorView!.layersTableView = layersTableView
     }
 
     override class func autosavesInPlace() -> Bool {
@@ -52,7 +55,18 @@ class Document: NSDocument {
         outError.memory = NSError.errorWithDomain(NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         return false
     }
-
-
+    
+    
+    /// Action to add a new layer to the editor
+    @IBAction func addLayer(sender: AnyObject!) {
+        documentEditorView!.addPixelLayer()
+    }
+    
+    /// Action to remove the currently selected layer from the editor
+    @IBAction func removeLayer(sender: AnyObject!) {
+        documentEditorView!.removePixelLayer(atIndex: documentEditorView!.activePixelLayer)
+    }
+    
 }
+
 

@@ -10,15 +10,30 @@ import Cocoa
 
 class PixelEditorView: NSView {
     
+    // Brush Settings
     var brushColor: NSColor = NSColor.blackColor()
+    var brushSize: Int = 1
+    
+    // Canvas Settings
     var actualSize: CGSize = CGSize(width: 32, height: 32)
-    var wantsGridLines = true
+    var wantsPixelGrid = true
+    var currentScaleFactor: CGFloat = 10
+    
+    // Layer Settings
     var pixelLayers = [PixelLayer]()
     var activePixelLayer: Int = 0
-    var currentScaleFactor: CGFloat = 10
+    var layersTableView: NSTableView? {
+        didSet {
+            self.layersTableView?.setDataSource(self)
+            self.layersTableView?.setDelegate(self)
+            self.layersTableView?.reloadData()
+        }
+    }
+    
     
     
     init(frame frameRect: NSRect) {
+        pixelLayers = [PixelLayer]()
         super.init(frame: frameRect)
         addPixelLayer()
     }
@@ -49,25 +64,9 @@ class PixelEditorView: NSView {
             }
         }
         
-        // Draw the grid lines if they are wanted
-        if wantsGridLines {
-            for y in 1..<Int(actualSize.height) {
-                NSColor.gridColor().setFill()
-                
-                var origin = CGPoint(x: 0, y: CGFloat(y) * cellSize.height)
-                var size = CGSize(width: CGRectGetWidth(frame), height: 1)
-                
-                NSBezierPath(rect: NSRect(origin: origin, size: size)).fill()
-            }
-            
-            for x in 1..<Int(actualSize.width) {
-                NSColor.gridColor().setFill()
-                
-                var origin = CGPoint(x: CGFloat(x) * cellSize.width, y: 0)
-                var size = CGSize(width: 1, height: CGRectGetHeight(frame))
-                
-                NSBezierPath(rect: NSRect(origin: origin, size: size)).fill()
-            }
+        // Draw the pixel grid lines if they are wanted
+        if wantsPixelGrid {
+            drawPixelGrid()
         }
     }
     
@@ -81,6 +80,11 @@ class PixelEditorView: NSView {
         drawPixel(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil))
     }
     
+    
+    /// Draw a single point of color at the specified location. It takes an actual point in
+    /// the view itself and then converts it to the actual that actual pixel space of the 
+    /// final image.
+    /// It will use the current brush settings.
     func drawPixel(locationInView point: CGPoint) {
         // Convert the point to the actual pixel grid
         let x = UInt(floor(point.x / currentScaleFactor))
@@ -95,10 +99,75 @@ class PixelEditorView: NSView {
     }
     
     
+    /// Add a new layer to the canvas, using the actual final pixel size and current scale
+    /// factor.
     func addPixelLayer() {
         var pixelLayer = PixelLayer()
         pixelLayer.size = actualSize
         pixelLayer.scaleFactor = currentScaleFactor
-        pixelLayers += pixelLayer
+        pixelLayers += [pixelLayer]
+        layersTableView?.reloadData()
     }
+    
+    /// Remove the specified pixel layer. This will destroy any pixel information contained
+    /// on that layer, and trigger a redraw of the canvas.
+    func removePixelLayer(atIndex index: Int) {
+        pixelLayers.removeAtIndex(index)
+        setNeedsDisplayInRect(bounds)
+        layersTableView?.reloadData()
+    }
+    
+    
+    /// Draw grid lines representing the layout of pixels on the canvas. The grid lines are
+    /// a standard grid line color. 
+    /// This may need to be changed in future!
+    func drawPixelGrid() {
+        for y in 1..<Int(actualSize.height) {
+            NSColor.gridColor().setFill()
+            
+            var origin = CGPoint(x: 0, y: CGFloat(y) * cellSize.height)
+            var size = CGSize(width: CGRectGetWidth(frame), height: 1)
+            
+            NSBezierPath(rect: NSRect(origin: origin, size: size)).fill()
+        }
+        
+        for x in 1..<Int(actualSize.width) {
+            NSColor.gridColor().setFill()
+            
+            var origin = CGPoint(x: CGFloat(x) * cellSize.width, y: 0)
+            var size = CGSize(width: 1, height: CGRectGetHeight(frame))
+            
+            NSBezierPath(rect: NSRect(origin: origin, size: size)).fill()
+        }
+    }
+}
+
+
+/// This extension handles everything to do with the tableview displaying
+/// layers, as well as any actions for creating, removing or selecting active
+/// layers.
+extension PixelEditorView: NSTableViewDataSource, NSTableViewDelegate {
+    
+    func numberOfRowsInTableView(tableView: NSTableView!) -> Int {
+        return countElements(pixelLayers)
+    }
+    
+    func tableView(tableView: NSTableView!, objectValueForTableColumn tableColumn: NSTableColumn!, row: Int) -> AnyObject! {
+        let layer = pixelLayers[row]
+        
+        if tableColumn.identifier == "name" {
+            return layer.name
+        }
+        
+        return nil
+    }
+    
+    
+    func tableViewSelectionDidChange(notification: NSNotification!) {
+        let tableView = notification.object as NSTableView
+        if tableView == layersTableView {
+            activePixelLayer = tableView.selectedRow
+        }
+    }
+    
 }

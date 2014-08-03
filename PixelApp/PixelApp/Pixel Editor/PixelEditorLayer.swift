@@ -23,12 +23,8 @@ class PixelLayer {
     
     // When setting the scale factor, we must also update the cached representation of the
     // layer
-    var scaleFactor: CGFloat {
-        get {
-            return currentScaleFactor
-        }
-        set {
-            currentScaleFactor = newValue
+    var scaleFactor: CGFloat = 1.0 {
+        didSet {
             updateCache()
         }
     }

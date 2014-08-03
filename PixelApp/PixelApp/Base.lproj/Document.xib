@@ -7,7 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Document" customModule="PixelApp" customModuleProvider="target">
             <connections>
-                <outlet property="documentScrollView" destination="iCF-FI-yJ0" id="Mn4-Ci-A3z"/>
+                <outlet property="documentScrollView" destination="SEz-cZ-xkF" id="Tu2-o3-Iqo"/>
+                <outlet property="layersTableView" destination="HZR-Nn-8zA" id="uOZ-JY-bAc"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
             </connections>
         </customObject>
@@ -16,45 +17,160 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="xOd-HO-29H" userLabel="Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="133" y="235" width="519" height="411"/>
+            <rect key="contentRect" x="213" y="190" width="866" height="507"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <value key="minSize" type="size" width="94" height="86"/>
             <view key="contentView" id="gIp-Ho-8D9">
-                <rect key="frame" x="0.0" y="0.0" width="519" height="411"/>
+                <rect key="frame" x="0.0" y="0.0" width="866" height="507"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCF-FI-yJ0">
-                        <rect key="frame" x="0.0" y="0.0" width="519" height="411"/>
-                        <clipView key="contentView" id="wy3-Ks-QPm" customClass="PixelEditorClipView" customModule="PixelApp" customModuleProvider="target">
-                            <rect key="frame" x="1" y="1" width="166" height="79"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0EM-QS-B06">
-                                    <rect key="frame" x="0.0" y="0.0" width="166" height="79"/>
-                                </view>
-                            </subviews>
-                        </clipView>
-                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="JaP-YF-cjx">
-                            <rect key="frame" x="1" y="80" width="166" height="15"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="rGT-pc-Gqs">
-                            <rect key="frame" x="167" y="1" width="15" height="79"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
+                    <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmW-tr-4mc">
+                        <rect key="frame" x="0.0" y="0.0" width="866" height="507"/>
+                        <subviews>
+                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="SEz-cZ-xkF">
+                                <rect key="frame" x="0.0" y="0.0" width="659.5" height="507"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" id="Q0E-Ah-1SJ" customClass="PixelEditorClipView" customModule="PixelApp" customModuleProvider="target">
+                                    <rect key="frame" x="1" y="1" width="181" height="94"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tQF-Mc-BDM">
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="94"/>
+                                        </view>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="vPK-VN-zl2">
+                                    <rect key="frame" x="1" y="79" width="181" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="I0f-Th-eM0">
+                                    <rect key="frame" x="166" y="1" width="16" height="94"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <splitView fixedFrame="YES" dividerStyle="thin" id="nRO-2y-hd1">
+                                <rect key="frame" x="660.5" y="0.0" width="205.5" height="507"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" id="7PI-Xv-PS9">
+                                        <rect key="frame" x="0.0" y="0.0" width="205.5" height="247"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </customView>
+                                    <customView id="q69-fa-eXb">
+                                        <rect key="frame" x="0.0" y="248" width="205.5" height="259"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b54-ru-fJb">
+                                                <rect key="frame" x="0.0" y="32" width="203.5" height="227"/>
+                                                <clipView key="contentView" id="BNK-sm-VDR">
+                                                    <rect key="frame" x="1" y="17" width="238" height="117"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="nSu-Oo-xEj" id="HZR-Nn-8zA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="204" height="19"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <size key="intercellSpacing" width="3" height="2"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                            <tableColumns>
+                                                                <tableColumn identifier="name" width="201" minWidth="40" maxWidth="1000" id="5ut-Uv-Sdf">
+                                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Layers">
+                                                                        <font key="font" metaFont="smallSystem"/>
+                                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                    </tableHeaderCell>
+                                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="mR8-dw-d1F">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                </tableColumn>
+                                                            </tableColumns>
+                                                        </tableView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </clipView>
+                                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="J0f-Pv-F21">
+                                                    <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="mlT-GR-YEP">
+                                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                                <tableHeaderView key="headerView" id="nSu-Oo-xEj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableHeaderView>
+                                            </scrollView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="IZV-Nq-H58" customClass="PaneActionBar" customModule="PixelApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-1" width="205" height="33"/>
+                                                <subviews>
+                                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o06-v1-GaK">
+                                                        <rect key="frame" x="0.0" y="1" width="25" height="32"/>
+                                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="iWT-xR-LEK">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="addLayer:" target="-2" id="lgy-mu-Fwi"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27l-dU-qCL">
+                                                        <rect key="frame" x="25" y="1" width="25" height="32"/>
+                                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="FtF-5d-IeB">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="removeLayer:" target="-2" id="NN2-tJ-TIf"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="33" id="bJo-DH-x6f"/>
+                                                </constraints>
+                                            </customView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="IZV-Nq-H58" firstAttribute="leading" secondItem="q69-fa-eXb" secondAttribute="leading" id="2VN-4f-muh"/>
+                                            <constraint firstItem="IZV-Nq-H58" firstAttribute="top" secondItem="b54-ru-fJb" secondAttribute="bottom" id="5oP-dG-hzH"/>
+                                            <constraint firstAttribute="trailing" secondItem="IZV-Nq-H58" secondAttribute="trailing" id="8Je-Gj-K3E"/>
+                                            <constraint firstItem="b54-ru-fJb" firstAttribute="top" secondItem="q69-fa-eXb" secondAttribute="top" id="GbO-8O-y9B"/>
+                                            <constraint firstItem="b54-ru-fJb" firstAttribute="leading" secondItem="q69-fa-eXb" secondAttribute="leading" id="ZSR-VA-7Sw"/>
+                                            <constraint firstAttribute="trailing" secondItem="b54-ru-fJb" secondAttribute="trailing" constant="0.5" id="aGB-Z4-NID"/>
+                                            <constraint firstAttribute="bottom" secondItem="b54-ru-fJb" secondAttribute="bottom" constant="32" id="iA5-ar-GZW"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <holdingPriorities>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                </holdingPriorities>
+                            </splitView>
+                        </subviews>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                    </splitView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="iCF-FI-yJ0" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" id="1LO-Iv-tT0"/>
-                    <constraint firstAttribute="bottom" secondItem="iCF-FI-yJ0" secondAttribute="bottom" id="DEL-3i-GYs"/>
-                    <constraint firstItem="iCF-FI-yJ0" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" id="RIr-Ve-W7j"/>
-                    <constraint firstAttribute="trailing" secondItem="iCF-FI-yJ0" secondAttribute="trailing" id="brv-BX-Dux"/>
+                    <constraint firstAttribute="bottom" secondItem="fmW-tr-4mc" secondAttribute="bottom" id="WdE-nD-Jkh"/>
+                    <constraint firstAttribute="trailing" secondItem="fmW-tr-4mc" secondAttribute="trailing" id="Xhg-nq-0mz"/>
+                    <constraint firstItem="fmW-tr-4mc" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" id="hMh-kY-sGs"/>
+                    <constraint firstItem="fmW-tr-4mc" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" id="y0o-CX-Dp1"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
-            <point key="canvasLocation" x="196.5" y="326.5"/>
+            <point key="canvasLocation" x="-32.5" y="271.5"/>
         </window>
     </objects>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
+    </resources>
 </document>

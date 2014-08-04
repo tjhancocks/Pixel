@@ -17,9 +17,13 @@ class Document: NSDocument {
     var documentEditorView: PixelEditorView?
     @IBOutlet var documentScrollView: NSScrollView?
     @IBOutlet var pixelGridButton: NSButton?
+    @IBOutlet var scaleSlider: NSSlider?
+    @IBOutlet var scaleLabel: NSTextField?
     
     // Layers Pane
     @IBOutlet var layersTableView: NSTableView?
+    @IBOutlet var layerOpacitySlider: NSSlider?
+    @IBOutlet var layerBlendModePopup: NSPopUpButton?
     
     // Brush Settings Pane
     @IBOutlet var brushSize: NSTextField?
@@ -40,10 +44,15 @@ class Document: NSDocument {
             aController.window.beginSheet(self.newDocumentSheet!.window) {
                 (response) -> Void in
                 
-                self.createEditorCanvasView(name: self.newDocumentSheet!.documentName,
-                    ofSize: self.newDocumentSheet!.canvasSize,
-                    atScale: 10.0,
-                    withBaseImageURL: self.newDocumentSheet!.baseImageURL)
+                if response == NSOKButton {
+                    self.createEditorCanvasView(name: self.newDocumentSheet!.documentName,
+                        ofSize: self.newDocumentSheet!.canvasSize,
+                        atScale: 5.0,
+                        withBaseImageURL: self.newDocumentSheet!.baseImageURL)
+                }
+                else {
+                    aController.close()
+                }
             }
         }
         
@@ -85,7 +94,11 @@ class Document: NSDocument {
         documentEditorView!.layersTableView = layersTableView
         documentEditorView!.setName(name: name, ofLayerAtIndex: 0)
         documentEditorView!.setBaseImage(url, ofLayerAtIndex: 0)
-        colorSwatch = ColorSwatch(colorsFromImageAtURL: url)
+        documentEditorView!.currentScaleFactor = scale
+        
+        if let actualURL = url? {
+            colorSwatch = ColorSwatch(colorsFromImageAtURL: actualURL)
+        }
     }
     
     
@@ -103,6 +116,12 @@ class Document: NSDocument {
     /// Toggle the Pixel Grid on the canvas
     @IBAction func togglePixelGrid(sender: AnyObject!) {
         documentEditorView!.wantsPixelGrid = ((sender as NSButton).state == NSOnState)
+    }
+    
+    /// Change the scale of the canvas
+    @IBAction func updateCanvasScale(sender: AnyObject!) {
+        documentEditorView!.currentScaleFactor = CGFloat((sender as NSSlider).doubleValue)
+        scaleLabel!.doubleValue = (sender as NSSlider).doubleValue
     }
     
     

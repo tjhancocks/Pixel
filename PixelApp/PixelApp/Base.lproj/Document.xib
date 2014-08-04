@@ -9,8 +9,12 @@
                 <outlet property="brushSize" destination="X3M-55-Cs4" id="whc-Y0-nzp"/>
                 <outlet property="colorPalettePane" destination="DJ5-G0-4Ta" id="9vA-uK-NKN"/>
                 <outlet property="documentScrollView" destination="EFj-9h-ffk" id="ZXA-ab-fkz"/>
+                <outlet property="layerBlendModePopup" destination="bvW-vb-vug" id="uwu-TM-JDH"/>
+                <outlet property="layerOpacitySlider" destination="0eX-SV-wvH" id="Vvi-Wt-Q5A"/>
                 <outlet property="layersTableView" destination="HZR-Nn-8zA" id="uOZ-JY-bAc"/>
                 <outlet property="pixelGridButton" destination="GAI-pw-ZVf" id="avq-gz-uVz"/>
+                <outlet property="scaleLabel" destination="rug-eG-eEG" id="HRy-J6-VCN"/>
+                <outlet property="scaleSlider" destination="hso-qp-sgU" id="IZL-Ii-j9F"/>
                 <outlet property="solidShapeButton" destination="TuN-Ix-2qb" id="NVg-cb-wm5"/>
                 <outlet property="toolSelection" destination="3ba-AY-NXB" id="wWm-xD-U64"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
@@ -48,9 +52,63 @@
                                                     <action selector="togglePixelGrid:" target="-2" id="m7M-eq-efq"/>
                                                 </connections>
                                             </button>
+                                            <slider verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hso-qp-sgU">
+                                                <rect key="frame" x="533" y="7" width="96" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="17" id="A2l-H3-N0K"/>
+                                                    <constraint firstAttribute="width" constant="92" id="e8j-Du-eBm"/>
+                                                </constraints>
+                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.10000000000000001" maxValue="10" doubleValue="5" tickMarkPosition="below" sliderType="linear" id="DXJ-vq-Q9i"/>
+                                                <connections>
+                                                    <action selector="updateCanvasScale:" target="-2" id="0C5-RA-X0l"/>
+                                                </connections>
+                                            </slider>
+                                            <imageView translatesAutoresizingMaskIntoConstraints="NO" id="Sh1-6y-zFe">
+                                                <rect key="frame" x="512" y="10" width="15" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="6ln-KP-Aiy"/>
+                                                    <constraint firstAttribute="width" constant="15" id="gXB-on-xcb"/>
+                                                </constraints>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="NSExitFullScreenTemplate" id="Ogu-67-SHv"/>
+                                            </imageView>
+                                            <imageView translatesAutoresizingMaskIntoConstraints="NO" id="2iR-DE-8Jt">
+                                                <rect key="frame" x="635" y="10" width="15" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="15" id="5Ry-l2-tft"/>
+                                                </constraints>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="NSEnterFullScreenTemplate" id="DMF-TV-lpP"/>
+                                            </imageView>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rug-eG-eEG">
+                                                <rect key="frame" x="416" y="9" width="90" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="86" id="4MI-tS-mZq"/>
+                                                    <constraint firstAttribute="height" constant="17" id="Q5e-EC-M7u"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="500%" id="gmH-DV-mym">
+                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="percent" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="Duf-mZ-n0l">
+                                                        <integer key="multiplier" value="100"/>
+                                                        <real key="minimum" value="1"/>
+                                                        <real key="maximum" value="1000"/>
+                                                        <metadata>
+                                                            <real key="inspectorSampleValue" value="0.45000000000000001"/>
+                                                        </metadata>
+                                                    </numberFormatter>
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="2iR-DE-8Jt" firstAttribute="leading" secondItem="hso-qp-sgU" secondAttribute="trailing" constant="8" id="3Ha-5x-u7P"/>
+                                            <constraint firstItem="Sh1-6y-zFe" firstAttribute="leading" secondItem="rug-eG-eEG" secondAttribute="trailing" constant="8" id="GUN-rJ-bAG"/>
+                                            <constraint firstItem="hso-qp-sgU" firstAttribute="leading" secondItem="Sh1-6y-zFe" secondAttribute="trailing" constant="8" id="Ncx-l1-rdr"/>
+                                            <constraint firstItem="rug-eG-eEG" firstAttribute="top" secondItem="W09-wK-YFE" secondAttribute="top" constant="7" id="Vdo-mn-Bqh"/>
                                             <constraint firstAttribute="height" constant="33" id="hVK-4Y-2Xp"/>
+                                            <constraint firstItem="Sh1-6y-zFe" firstAttribute="top" secondItem="W09-wK-YFE" secondAttribute="top" constant="8" id="oJc-Fl-88h"/>
+                                            <constraint firstAttribute="trailing" secondItem="2iR-DE-8Jt" secondAttribute="trailing" constant="11" id="qx8-fW-jLv"/>
+                                            <constraint firstItem="hso-qp-sgU" firstAttribute="top" secondItem="W09-wK-YFE" secondAttribute="top" constant="8" id="rue-ip-aBg"/>
+                                            <constraint firstItem="2iR-DE-8Jt" firstAttribute="top" secondItem="W09-wK-YFE" secondAttribute="top" constant="8" id="y1B-ow-Lm9"/>
                                         </constraints>
                                     </customView>
                                     <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFj-9h-ffk">
@@ -261,7 +319,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b54-ru-fJb">
-                                                <rect key="frame" x="0.0" y="32" width="202.5" height="206"/>
+                                                <rect key="frame" x="0.0" y="32" width="203" height="206"/>
                                                 <clipView key="contentView" id="BNK-sm-VDR">
                                                     <rect key="frame" x="1" y="17" width="238" height="117"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,7 +349,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </clipView>
-                                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="J0f-Pv-F21">
+                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="J0f-Pv-F21">
                                                     <rect key="frame" x="1" y="119" width="223" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
@@ -302,8 +360,41 @@
                                             </scrollView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="IZV-Nq-H58" customClass="PaneActionBar" customModule="PixelApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="-1" width="204" height="33"/>
+                                                <subviews>
+                                                    <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0eX-SV-wvH">
+                                                        <rect key="frame" x="37" y="8" width="53" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="53" id="2mm-0C-uSp"/>
+                                                        </constraints>
+                                                        <sliderCell key="cell" controlSize="small" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="oBY-Q0-M6D"/>
+                                                    </slider>
+                                                    <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDv-Va-E4Y">
+                                                        <rect key="frame" x="10" y="10" width="19" height="12"/>
+                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="NSQuickLookTemplate" id="Fw1-h4-zc8"/>
+                                                    </imageView>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bvW-vb-vug">
+                                                        <rect key="frame" x="95" y="5" width="106" height="22"/>
+                                                        <popUpButtonCell key="cell" type="push" title="Blend Mode" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="tLj-oA-pgN" id="0vK-Ef-ll1">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <menu key="menu" id="jAd-DI-k4h">
+                                                                <items>
+                                                                    <menuItem title="Blend Mode" state="on" id="tLj-oA-pgN"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                    </popUpButton>
+                                                </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="0eX-SV-wvH" firstAttribute="leading" secondItem="IZV-Nq-H58" secondAttribute="leading" constant="37" id="GqP-4N-oan"/>
+                                                    <constraint firstAttribute="bottom" secondItem="0eX-SV-wvH" secondAttribute="bottom" constant="9" id="HuU-iO-AfS"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bvW-vb-vug" secondAttribute="bottom" constant="8" id="Ps9-Ag-LXh"/>
                                                     <constraint firstAttribute="height" constant="33" id="bJo-DH-x6f"/>
+                                                    <constraint firstItem="0eX-SV-wvH" firstAttribute="top" secondItem="IZV-Nq-H58" secondAttribute="top" constant="9" id="cwI-Rn-AAI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bvW-vb-vug" secondAttribute="trailing" constant="6" id="d1q-hs-ipY"/>
+                                                    <constraint firstItem="bvW-vb-vug" firstAttribute="leading" secondItem="0eX-SV-wvH" secondAttribute="trailing" constant="8" id="e7U-Y8-Hex"/>
+                                                    <constraint firstItem="bvW-vb-vug" firstAttribute="leading" secondItem="0eX-SV-wvH" secondAttribute="trailing" constant="8" id="oPg-EE-KeP"/>
+                                                    <constraint firstItem="bvW-vb-vug" firstAttribute="top" secondItem="IZV-Nq-H58" secondAttribute="top" constant="7" id="yXV-ME-Fd2"/>
                                                 </constraints>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="8jr-ua-eGo" customClass="PaneActionBar" customModule="PixelApp" customModuleProvider="target">
@@ -395,7 +486,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
-            <point key="canvasLocation" x="-199" y="41.5"/>
+            <point key="canvasLocation" x="-166" y="57.5"/>
         </window>
         <collectionViewItem id="X62-Yg-2bW">
             <connections>
@@ -434,6 +525,9 @@
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSEnterFullScreenTemplate" width="15" height="15"/>
+        <image name="NSExitFullScreenTemplate" width="15" height="15"/>
+        <image name="NSQuickLookTemplate" width="19" height="12"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

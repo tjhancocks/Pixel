@@ -131,8 +131,8 @@ class PixelLayer {
         for y in 0..<Int(size.height) {
             for x in 0..<Int(size.width) {
                 let color = pixelColor(atPoint: PixelPoint(x: x, y: y))
-                let pixelLocation = CGPoint(x: CGFloat(x) * scaleFactor, y: CGFloat(y) * scaleFactor)
-                let pixelSize = CGSize(width: scaleFactor, height: scaleFactor)
+                let pixelLocation = CGPoint(x: floor(CGFloat(x) * scaleFactor), y: floor(CGFloat(y) * scaleFactor))
+                let pixelSize = CGSize(width: ceil(scaleFactor), height: ceil(scaleFactor))
                 
                 color.setFill()
                 NSBezierPath(rect: CGRect(origin: pixelLocation, size: pixelSize)).fill()

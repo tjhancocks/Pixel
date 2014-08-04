@@ -14,14 +14,32 @@ class PixelEditorView: NSView {
     var brushColor: NSColor = NSColor.blackColor()
     var brushSize: Int = 1
     
+    
     // Canvas Settings
     var actualSize: CGSize = CGSize(width: 32, height: 32)
+    private var scaledSize: CGSize {
+        return CGSize(width: actualSize.width * currentScaleFactor,
+            height: actualSize.height * currentScaleFactor)
+    }
+    
     var wantsPixelGrid: Bool = true {
         didSet {
             setNeedsDisplayInRect(bounds)
         }
     }
-    var currentScaleFactor: CGFloat = 10
+    
+    var currentScaleFactor: CGFloat = 5 {
+        didSet {
+            frame = NSRect(origin: CGPointZero, size: scaledSize)
+            
+            for layer in pixelLayers {
+                layer.scaleFactor = currentScaleFactor
+            }
+            
+            setNeedsDisplayInRect(bounds)
+        }
+    }
+    
     
     // Layer Settings
     var pixelLayers = [PixelLayer]()

@@ -3,7 +3,7 @@ Pixel
 
 A simple pixel art editor written in Swift.
 
-![Screenshot](https://raw.githubusercontent.com/tjhancocks/Pixel/master/Preview%20Images/PixelPreviewRed.png)
+![Screenshot](https://raw.githubusercontent.com/tjhancocks/Pixel/master/Preview%20Images/PixelPreviewSMB.png)
 
 ###About the current version
 Currently this editor is extremely basic. You can not yet change the size of the canvas, zoom-in or out (it's set to 1000% currently) and you can only paint in one colour. However this is basically the
@@ -14,6 +14,9 @@ Current features of the editor are:
 - Colour Selection
 - Layers (Naming, Addition, Deletion)
 - New Documents (Naming, Canvas Sizing, Base Image - not quite functional yet)
+- Layer Visibility
+- Layer Opacity
+- Canvas Scaling/Zooming
 
 
 Planned features of the editor include:
@@ -21,9 +24,7 @@ Planned features of the editor include:
 - Brush/Pen Sizes
 - Shapes (Lines, Rectangles, Ovals, etc)
 - Flood Filling
-- Layer Visibility
 - Layer Blending
-- Layer Opacity
 - Saving/Opening using a custom file format to allow the Colour Swatches and Layers to be saved
 - Export to PNG, JPG, etc
 

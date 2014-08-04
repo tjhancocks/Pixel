@@ -43,6 +43,11 @@ class NewDocumentController: NSWindowController {
         if openPanel.runModal() == NSOKButton {
             baseImageURL = openPanel.URL
             baseImageNameField!.stringValue = baseImageURL!.lastPathComponent.stringByDeletingPathExtension
+            
+            // Pull in the actual image and then get its dimensions and set them.
+            let image = NSImage(contentsOfURL: openPanel.URL)
+            canvasWidthField!.integerValue = Int(image.size.width)
+            canvasHeightField!.integerValue = Int(image.size.height)
         }
     }
     

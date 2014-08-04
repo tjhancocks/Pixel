@@ -127,6 +127,15 @@ class PixelEditorView: NSView {
         layersTableView?.reloadData()
     }
     
+    /// Load base image for layer using a given URL
+    func setBaseImage(url: NSURL?, ofLayerAtIndex index: Int) {
+        if let actualURL = url? {
+            let pixelLayer = pixelLayers[index]
+            pixelLayer.importPixelsFromImage(atURL: actualURL)
+            setNeedsDisplayInRect(bounds)
+        }
+    }
+    
     
     /// Draw grid lines representing the layout of pixels on the canvas. The grid lines are
     /// a standard grid line color. 

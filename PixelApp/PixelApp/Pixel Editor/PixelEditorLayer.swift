@@ -20,13 +20,16 @@ class PixelLayer {
     var data = [UInt32]()
     var cachedRepresentation: NSImage?
     private var currentScaleFactor: CGFloat = 1.0
+    var opacity: CGFloat = 1.0
     
+    
+    // Instantiate a layer to be a certain size
     init(size: CGSize) {
         self.size = size
         createNewDataBuffer()
     }
     
-    
+    // Create a new data buffer for the layer pixel data
     func createNewDataBuffer() {
         self.data = [UInt32](count: Int(size.width) * Int(size.height), repeatedValue: UInt32.max)
     }
@@ -41,16 +44,41 @@ class PixelLayer {
     
     // Calculate the layer size based on the current scale factor
     var scaledSize: CGSize {
-        get {
-            return CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
-        }
+        return CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
     }
     
     // The rectangle representation of the layer (AppKit variant)
     var rect: NSRect {
-        get {
-            return NSRect(x: 0, y: 0, width: scaledSize.width, height: scaledSize.height)
+        return NSRect(x: 0, y: 0, width: scaledSize.width, height: scaledSize.height)
+    }
+    
+    
+    // Import data from an image at the specified URL and use it to fill in the pixel data for the layer.
+    // This will crop the image to the size of the layer.
+    func importPixelsFromImage(atURL url: NSURL) {
+        var error: NSError?
+        let imageData = NSData(contentsOfURL: url,
+            options: NSDataReadingOptions.DataReadingMappedIfSafe,
+            error: &error)
+        
+        if let e = error? {
+            println("\(e.localizedDescription)")
+            return
         }
+        
+        let bitmap = NSBitmapImageRep(data: imageData)
+        
+        // The coordinate system is actually flipped relative to how we actually see the image.
+        // Correct this
+        for y in 0..<Int(size.height) {
+            for x in 0..<Int(size.width) {
+                if let i = index(forPixelPoint: PixelPoint(x: x, y: y))? {
+                    data[i] = bitmap.colorAtX(x, y: Int(size.height) - y - 1).toUInt32()
+                }
+            }
+        }
+        
+        updateCache()
     }
     
     

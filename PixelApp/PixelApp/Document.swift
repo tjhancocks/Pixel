@@ -42,7 +42,8 @@ class Document: NSDocument {
                 
                 self.createEditorCanvasView(name: self.newDocumentSheet!.documentName,
                     ofSize: self.newDocumentSheet!.canvasSize,
-                    atScale: 10.0)
+                    atScale: 10.0,
+                    withBaseImageURL: self.newDocumentSheet!.baseImageURL)
             }
         }
         
@@ -77,12 +78,14 @@ class Document: NSDocument {
     
     
     /// Create a new canvas at the specified size and scale
-    func createEditorCanvasView(#name: String, ofSize size: CGSize, atScale scale: CGFloat) {
+    func createEditorCanvasView(#name: String, ofSize size: CGSize, atScale scale: CGFloat, withBaseImageURL url: NSURL?) {
         var canvasFrame = NSRect(x: 0, y: 0, width: size.width * scale, height: size.height * scale)
         documentEditorView = PixelEditorView(frame: canvasFrame, withSize: size)
         documentScrollView!.documentView = documentEditorView!
         documentEditorView!.layersTableView = layersTableView
         documentEditorView!.setName(name: name, ofLayerAtIndex: 0)
+        documentEditorView!.setBaseImage(url, ofLayerAtIndex: 0)
+        colorSwatch = ColorSwatch(colorsFromImageAtURL: url)
     }
     
     

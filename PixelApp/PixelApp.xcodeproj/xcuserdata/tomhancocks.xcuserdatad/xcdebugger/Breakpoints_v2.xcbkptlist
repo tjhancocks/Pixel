@@ -26,13 +26,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixelApp/Categories/NSColor+Extensions.swift"
-            timestampString = "428778037.717363"
+            timestampString = "428840742.011057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "NSColor"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PixelApp/Pixel Editor/PixelEditorView.swift"
+            timestampString = "428829613.573751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "setBaseImage(_:ofLayerAtIndex:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PixelApp.PixelEditorView.setBaseImage (PixelApp.PixelEditorView)(Swift.Optional&lt;ObjectiveC.NSURL&gt;, ofLayerAtIndex : Swift.Int) -&gt; ()"
+                  moduleName = "PixelApp"
+                  urlString = "file:///Users/tomhancocks/Documents/Open%20Source%20Apps/Pixel/PixelApp/PixelApp/Pixel%20Editor/PixelEditorView.swift"
+                  timestampString = "428829617.670016"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PixelApp.PixelEditorView.setBaseImage (PixelApp.PixelEditorView)(Swift.Optional&lt;ObjectiveC.NSURL&gt;, ofLayerAtIndex : Swift.Int) -&gt; ()"
+                  moduleName = "PixelApp"
+                  urlString = "file:///Users/tomhancocks/Documents/Open%20Source%20Apps/Pixel/PixelApp/PixelApp/Pixel%20Editor/PixelEditorView.swift"
+                  timestampString = "428829617.670188"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "781">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

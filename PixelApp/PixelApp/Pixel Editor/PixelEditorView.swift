@@ -80,11 +80,16 @@ class PixelEditorView: NSView {
         
         // Draw each of the layers, starting with the backmost layer and working to the front most
         for pixelLayer in pixelLayers {
+            // If the layer is not visible, then just skip to the next one
+            if !pixelLayer.visibility {
+                continue
+            }
+            
             if let rep = pixelLayer.cachedRepresentation? {
                 rep.drawAtPoint(NSZeroPoint, fromRect:
                     pixelLayer.rect,
                     operation: .CompositeSourceOver,
-                    fraction: 1.0)
+                    fraction: pixelLayer.opacity)
             }
         }
         
@@ -139,10 +144,16 @@ class PixelEditorView: NSView {
     }
     
     /// Rename a specific pixel layer to the given name
-    func setName(#name: String, ofLayerAtIndex index: Int) {
+    func setName(name: String, ofLayerAtIndex index: Int) {
         let pixelLayer = pixelLayers[index]
         pixelLayer.name = name
         layersTableView?.reloadData()
+    }
+    
+    /// Change the opacity of a specific pixel layer to the given value
+    func setOpacity(value: Double, ofLayerAtIndex index: Int) {
+        pixelLayers[index].opacity = CGFloat(value)
+        setNeedsDisplayInRect(bounds)
     }
     
     /// Load base image for layer using a given URL
@@ -195,6 +206,9 @@ extension PixelEditorView: NSTableViewDataSource, NSTableViewDelegate {
         if tableColumn.identifier == "name" {
             return layer.name
         }
+        else if tableColumn.identifier == "visibility" {
+            return NSNumber(bool: layer.visibility)
+        }
         
         return nil
     }
@@ -205,6 +219,10 @@ extension PixelEditorView: NSTableViewDataSource, NSTableViewDelegate {
         
         if tableColumn.identifier == "name" {
             layer.name = object as String
+        }
+        else if tableColumn.identifier == "visibility" {
+            layer.visibility = (object as NSNumber).boolValue
+            setNeedsDisplayInRect(bounds)
         }
     }
     

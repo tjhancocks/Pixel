@@ -21,6 +21,7 @@ class PixelLayer {
     var cachedRepresentation: NSImage?
     private var currentScaleFactor: CGFloat = 1.0
     var opacity: CGFloat = 1.0
+    var visibility = true
     
     
     // Instantiate a layer to be a certain size
@@ -31,7 +32,7 @@ class PixelLayer {
     
     // Create a new data buffer for the layer pixel data
     func createNewDataBuffer() {
-        self.data = [UInt32](count: Int(size.width) * Int(size.height), repeatedValue: UInt32.max)
+        self.data = [UInt32](count: Int(size.width) * Int(size.height), repeatedValue: 0x00000000)
     }
     
     // When setting the scale factor, we must also update the cached representation of the
@@ -115,9 +116,7 @@ class PixelLayer {
     // This will return NSColor.clearColor if there is no data for the pixel available.
     func pixelColor(atPoint point: PixelPoint) -> NSColor {
         if let i = index(forPixelPoint: point)? {
-            if data[i] != UInt32.max {
-                return NSColor(encodedInt32Value: data[i])
-            }
+            return NSColor(encodedInt32Value: data[i])
         }
         return NSColor.clearColor()
     }

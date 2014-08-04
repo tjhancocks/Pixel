@@ -20,6 +20,7 @@
 		80486F56198E968500B34D0E /* ColorSwatchItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80486F55198E968500B34D0E /* ColorSwatchItemView.swift */; };
 		804B6FBB198ECBB700418E08 /* NewDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804B6FB9198ECBB700418E08 /* NewDocumentController.swift */; };
 		804B6FBC198ECBB700418E08 /* NewDocumentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 804B6FBA198ECBB700418E08 /* NewDocumentController.xib */; };
+		804B6FBE198FD0F000418E08 /* ColorSwatchActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804B6FBD198FD0F000418E08 /* ColorSwatchActiveView.swift */; };
 		8059E425198E0E1E006E1253 /* PaneActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059E424198E0E1E006E1253 /* PaneActionBar.swift */; };
 		80FCF8AE198D694D00B87341 /* PixelEditorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */; };
 		80FCF8B0198D6A3B00B87341 /* PixelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */; };
@@ -53,6 +54,7 @@
 		80486F55198E968500B34D0E /* ColorSwatchItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSwatchItemView.swift; path = "Color Swatch/ColorSwatchItemView.swift"; sourceTree = "<group>"; };
 		804B6FB9198ECBB700418E08 /* NewDocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewDocumentController.swift; path = "New Document/NewDocumentController.swift"; sourceTree = "<group>"; };
 		804B6FBA198ECBB700418E08 /* NewDocumentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewDocumentController.xib; path = "New Document/NewDocumentController.xib"; sourceTree = "<group>"; };
+		804B6FBD198FD0F000418E08 /* ColorSwatchActiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSwatchActiveView.swift; path = "Color Swatch/ColorSwatchActiveView.swift"; sourceTree = "<group>"; };
 		8059E424198E0E1E006E1253 /* PaneActionBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaneActionBar.swift; path = View/PaneActionBar.swift; sourceTree = "<group>"; };
 		80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorLayer.swift; path = "Pixel Editor/PixelEditorLayer.swift"; sourceTree = "<group>"; };
 		80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelPoint.swift; path = "Pixel Editor/PixelPoint.swift"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				80486F53198E898F00B34D0E /* ColorSwatch.swift */,
 				80486F55198E968500B34D0E /* ColorSwatchItemView.swift */,
+				804B6FBD198FD0F000418E08 /* ColorSwatchActiveView.swift */,
 			);
 			name = "Color Swatch";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				804B6FBB198ECBB700418E08 /* NewDocumentController.swift in Sources */,
 				800FD8F0198D3F1400F07127 /* PixelEditorClipView.swift in Sources */,
 				80FCF8AE198D694D00B87341 /* PixelEditorLayer.swift in Sources */,
+				804B6FBE198FD0F000418E08 /* ColorSwatchActiveView.swift in Sources */,
 				80486F56198E968500B34D0E /* ColorSwatchItemView.swift in Sources */,
 				800FD8CC198D37BA00F07127 /* main.swift in Sources */,
 				8006FF69198E71B000430E73 /* NSColor+Extensions.swift in Sources */,

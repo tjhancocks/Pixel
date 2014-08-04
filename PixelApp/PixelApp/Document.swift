@@ -17,8 +17,7 @@ class Document: NSDocument {
     var documentEditorView: PixelEditorView?
     @IBOutlet var documentScrollView: NSScrollView?
     @IBOutlet var pixelGridButton: NSButton?
-    @IBOutlet var scaleSlider: NSSlider?
-    @IBOutlet var scaleLabel: NSTextField?
+    @IBOutlet var scalePopUp: NSPopUpButton?
     
     // Layers Pane
     @IBOutlet var layersTableView: NSTableView?
@@ -32,6 +31,7 @@ class Document: NSDocument {
     
     // Colors Palette Pane
     @IBOutlet var colorPalettePane: NSCollectionView?
+    @IBOutlet var activeColorView: ColorSwatchActiveView?
     var colorSwatch = ColorSwatch()
     
 
@@ -56,6 +56,21 @@ class Document: NSDocument {
             }
         }
         
+        // Populate the scale popup menu with a number of items
+        for s in 1...8 {
+            var scale: Int = 0
+            
+            if s <= 4 {
+                scale = s * 25
+            }
+            else if s > 4 {
+                scale = (s - 4) * 250
+            }
+            
+            scalePopUp!.addItemWithTitle(String("\(scale)%"))
+            scalePopUp!.lastItem.tag = scale
+        }
+        scalePopUp!.selectItemWithTag(500)
         
         // Make sure the color palette is selectable, and set up an observe for
         // its selection
@@ -92,7 +107,7 @@ class Document: NSDocument {
         documentEditorView = PixelEditorView(frame: canvasFrame, withSize: size)
         documentScrollView!.documentView = documentEditorView!
         documentEditorView!.layersTableView = layersTableView
-        documentEditorView!.setName(name: name, ofLayerAtIndex: 0)
+        documentEditorView!.setName(name, ofLayerAtIndex: 0)
         documentEditorView!.setBaseImage(url, ofLayerAtIndex: 0)
         documentEditorView!.currentScaleFactor = scale
         
@@ -112,18 +127,35 @@ class Document: NSDocument {
         documentEditorView!.removePixelLayer(atIndex: documentEditorView!.activePixelLayer)
     }
     
+    /// Action to change the opacity of the selected layer
+    @IBAction func changeLayerOpacity(sender: AnyObject!) {
+        documentEditorView!.setOpacity((sender as NSSlider).doubleValue,
+            ofLayerAtIndex: documentEditorView!.activePixelLayer)
+    }
+    
     
     /// Toggle the Pixel Grid on the canvas
     @IBAction func togglePixelGrid(sender: AnyObject!) {
-        documentEditorView!.wantsPixelGrid = ((sender as NSButton).state == NSOnState)
+        let scale = scalePopUp!.selectedTag()
+        if scale > 100 {
+            documentEditorView!.wantsPixelGrid = ((sender as NSButton).state == NSOnState)
+        }
     }
     
     /// Change the scale of the canvas
     @IBAction func updateCanvasScale(sender: AnyObject!) {
-        documentEditorView!.currentScaleFactor = CGFloat((sender as NSSlider).doubleValue)
-        scaleLabel!.doubleValue = (sender as NSSlider).doubleValue
+        let scale = (sender as NSPopUpButton).selectedTag()
+        
+        if scale <= 100 {
+            documentEditorView!.wantsPixelGrid = false
+        }
+        else {
+            documentEditorView!.wantsPixelGrid = (pixelGridButton!.state == NSOnState)
+        }
+        
+        documentEditorView!.currentScaleFactor = CGFloat(Double(scale) / 100.0)
+        
     }
-    
     
     
     override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafePointer<()>) {
@@ -133,6 +165,7 @@ class Document: NSDocument {
             let selectedIndex = (change["new"] as NSIndexSet).firstIndex
             if let color = colorSwatch.color(atIndex: selectedIndex)? {
                 documentEditorView!.brushColor = color
+                activeColorView!.color = color
             }
         }
         

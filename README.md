@@ -3,7 +3,7 @@ Pixel
 
 A simple pixel art editor written in Swift.
 
-![Screenshot](https://raw.githubusercontent.com/tjhancocks/Pixel/master/Preview%20Images/PixelPreview.png)
+![Screenshot](https://raw.githubusercontent.com/tjhancocks/Pixel/master/Preview%20Images/PixelPreviewRed.png)
 
 ###About the current version
 Currently this editor is extremely basic. You can not yet change the size of the canvas, zoom-in or out (it's set to 1000% currently) and you can only paint in one colour. However this is basically the

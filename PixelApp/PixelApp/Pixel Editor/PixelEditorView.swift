@@ -78,6 +78,12 @@ class PixelEditorView: NSView {
         NSColor.whiteColor().setFill()
         NSBezierPath(rect: NSInsetRect(bounds, 1, 1)).fill()
         
+        let graphicsContext = NSGraphicsContext.currentContext()
+        let wasAntialiasing = graphicsContext.shouldAntialias
+        let previousImageInterpolation = graphicsContext.imageInterpolation
+        graphicsContext.shouldAntialias = false
+        graphicsContext.imageInterpolation = .None
+        
         // Draw each of the layers, starting with the backmost layer and working to the front most
         for pixelLayer in pixelLayers {
             // If the layer is not visible, then just skip to the next one
@@ -86,12 +92,15 @@ class PixelEditorView: NSView {
             }
             
             if let rep = pixelLayer.cachedRepresentation? {
-                rep.drawAtPoint(NSZeroPoint, fromRect:
-                    pixelLayer.rect,
-                    operation: .CompositeSourceOver,
+                rep.drawInRect(bounds,
+                    fromRect: pixelLayer.rect,
+                    operation: NSCompositingOperation.CompositeSourceOver,
                     fraction: pixelLayer.opacity)
             }
         }
+        
+        graphicsContext.shouldAntialias = wasAntialiasing
+        graphicsContext.imageInterpolation = previousImageInterpolation
         
         // Draw the pixel grid lines if they are wanted
         if wantsPixelGrid {

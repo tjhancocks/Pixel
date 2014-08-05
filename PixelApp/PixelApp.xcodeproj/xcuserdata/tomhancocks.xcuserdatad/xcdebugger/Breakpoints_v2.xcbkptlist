@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixelApp/Pixel Editor/PixelEditorView.swift"
-            timestampString = "428861377.626946"
+            timestampString = "428917755.295915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "addPixelLayer()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixelApp/Pixel Editor/PixelEditorView.swift"
-            timestampString = "428864190.340926"
+            timestampString = "428917755.295915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "setBaseImage(_:ofLayerAtIndex:)"
             landmarkType = "5">
             <Locations>

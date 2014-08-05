@@ -50,7 +50,7 @@ class PixelLayer {
     
     // The rectangle representation of the layer (AppKit variant)
     var rect: NSRect {
-        return NSRect(x: 0, y: 0, width: scaledSize.width, height: scaledSize.height)
+        return NSRect(x: 0, y: 0, width: size.width, height: size.height)
     }
     
     
@@ -124,14 +124,14 @@ class PixelLayer {
     
     // Update the cachedRepresentation of the layer
     func updateCache() {
-        var layer = NSImage(size: NSSizeFromCGSize(scaledSize))
+        var layer = NSImage(size: NSSizeFromCGSize(size))
         layer.lockFocus()
         
         for y in 0..<Int(size.height) {
             for x in 0..<Int(size.width) {
                 let color = pixelColor(atPoint: PixelPoint(x: x, y: y))
-                let pixelLocation = CGPoint(x: floor(CGFloat(x) * scaleFactor), y: floor(CGFloat(y) * scaleFactor))
-                let pixelSize = CGSize(width: ceil(scaleFactor), height: ceil(scaleFactor))
+                let pixelLocation = CGPoint(x: CGFloat(x), y: CGFloat(y))
+                let pixelSize = CGSize(width: 1, height: 1)
                 
                 color.setFill()
                 NSBezierPath(rect: CGRect(origin: pixelLocation, size: pixelSize)).fill()

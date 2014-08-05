@@ -14,21 +14,21 @@ class ColorSwatch: NSObject {
     var colors = [NSColor]()
     
     /// Instantiate the ColorSwatch with a selection of pre-determined colors
-    init() {
-        colors += NSColor.blackColor()
-        colors += NSColor.darkGrayColor()
-        colors += NSColor.lightGrayColor()
-        colors += NSColor.whiteColor()
-        colors += NSColor.grayColor()
-        colors += NSColor.redColor()
-        colors += NSColor.greenColor()
-        colors += NSColor.blueColor()
-        colors += NSColor.cyanColor()
-        colors += NSColor.yellowColor()
-        colors += NSColor.magentaColor()
-        colors += NSColor.orangeColor()
-        colors += NSColor.purpleColor()
-        colors += NSColor.brownColor()
+    override init() {
+        colors.append(NSColor.blackColor())
+        colors.append(NSColor.darkGrayColor())
+        colors.append(NSColor.lightGrayColor())
+        colors.append(NSColor.whiteColor())
+        colors.append(NSColor.grayColor())
+        colors.append(NSColor.redColor())
+        colors.append(NSColor.greenColor())
+        colors.append(NSColor.blueColor())
+        colors.append(NSColor.cyanColor())
+        colors.append(NSColor.yellowColor())
+        colors.append(NSColor.magentaColor())
+        colors.append(NSColor.orangeColor())
+        colors.append(NSColor.purpleColor())
+        colors.append(NSColor.brownColor())
         
         super.init()
     }
@@ -62,7 +62,7 @@ class ColorSwatch: NSObject {
                 // Finally, step through the color set and actually create the colors
                 for encodedColor in colorSet {
                     let color = NSColor(encodedInt32Value: (encodedColor as NSNumber).unsignedIntValue)
-                    colors += color
+                    colors.append(color)
                 }
             }
         }
@@ -71,7 +71,7 @@ class ColorSwatch: NSObject {
     
     /// Add a new color to the swatch
     func add(#color: NSColor) {
-        colors += color
+        colors.append(color)
     }
     
     /// Remove an existing color from the swatch

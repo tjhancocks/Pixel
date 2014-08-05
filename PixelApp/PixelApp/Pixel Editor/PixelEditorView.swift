@@ -61,6 +61,12 @@ class PixelEditorView: NSView {
         addPixelLayer()
     }
     
+    required init(coder: NSCoder) {
+        pixelLayers = [PixelLayer]()
+        super.init(coder: coder)
+        addPixelLayer()
+    }
+    
     
     /// Provides the actual on screen dimensions of a pixel as they are displayed within the canvas
     var cellSize: CGSize {

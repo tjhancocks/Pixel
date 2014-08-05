@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A298i" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6205"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Document" customModule="PixelApp" customModuleProvider="target">
@@ -219,11 +219,13 @@
                                                 </connections>
                                             </stepper>
                                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-AY-NXB">
-                                                <rect key="frame" x="64" y="200" width="130" height="20"/>
+                                                <rect key="frame" x="64" y="200" width="134" height="20"/>
                                                 <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="vZL-lz-x3U">
                                                     <font key="font" metaFont="smallSystem"/>
                                                     <segments>
-                                                        <segment label="P"/>
+                                                        <segment image="PencilTemplate" imageScaling="none">
+                                                            <nil key="label"/>
+                                                        </segment>
                                                         <segment label="E" selected="YES" tag="1"/>
                                                         <segment label="L"/>
                                                         <segment label="S"/>
@@ -291,13 +293,13 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b54-ru-fJb">
-                                                <rect key="frame" x="0.0" y="32" width="203" height="206"/>
+                                                <rect key="frame" x="0.0" y="32" width="202.5" height="206"/>
                                                 <clipView key="contentView" id="BNK-sm-VDR">
                                                     <rect key="frame" x="1" y="17" width="238" height="117"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" id="HZR-Nn-8zA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="203" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="202.5" height="19"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -514,5 +516,6 @@
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSQuickLookTemplate" width="19" height="12"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="PencilTemplate" width="16" height="16"/>
     </resources>
 </document>

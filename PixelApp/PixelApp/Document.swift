@@ -67,7 +67,7 @@ class Document: NSDocument {
                 scale = (s - 4) * 250
             }
             
-            scalePopUp!.addItemWithTitle(String("\(scale)%"))
+            scalePopUp!.addItemWithTitle("\(scale)%")
             scalePopUp!.lastItem.tag = scale
         }
         scalePopUp!.selectItemWithTag(500)
@@ -158,7 +158,7 @@ class Document: NSDocument {
     }
     
     
-    override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafePointer<()>) {
+    override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<()>) {
         
         // Listen for any changes to the selection of the color palette
         if (object as NSCollectionView) == colorPalettePane && keyPath == "selectionIndexes" {

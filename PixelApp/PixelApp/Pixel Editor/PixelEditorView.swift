@@ -31,11 +31,6 @@ class PixelEditorView: NSView {
     var currentScaleFactor: CGFloat = 5 {
         didSet {
             frame = NSRect(origin: CGPointZero, size: scaledSize)
-            
-            for layer in pixelLayers {
-                layer.scaleFactor = currentScaleFactor
-            }
-            
             setNeedsDisplayInRect(bounds)
         }
     }
@@ -97,7 +92,7 @@ class PixelEditorView: NSView {
                 continue
             }
             
-            if let rep = pixelLayer.cachedRepresentation? {
+            if let rep = pixelLayer.layerRepresentation? {
                 rep.drawInRect(bounds,
                     fromRect: pixelLayer.rect,
                     operation: NSCompositingOperation.CompositeSourceOver,
@@ -145,7 +140,6 @@ class PixelEditorView: NSView {
     /// factor.
     func addPixelLayer() {
         var pixelLayer = PixelLayer(size: actualSize)
-        pixelLayer.scaleFactor = currentScaleFactor
         pixelLayers += [pixelLayer]
         layersTableView?.reloadData()
     }

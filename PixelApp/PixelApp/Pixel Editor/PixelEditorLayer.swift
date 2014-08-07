@@ -17,9 +17,8 @@ class PixelLayer {
             createNewDataBuffer()
         }
     }
-    var data = [UInt32]()
-    var cachedRepresentation: NSImage?
-    private var currentScaleFactor: CGFloat = 1.0
+    
+    var layerRepresentation: NSImage?
     var opacity: CGFloat = 1.0
     var visibility = true
     
@@ -32,21 +31,9 @@ class PixelLayer {
     
     // Create a new data buffer for the layer pixel data
     func createNewDataBuffer() {
-        self.data = [UInt32](count: Int(size.width) * Int(size.height), repeatedValue: 0x00000000)
+        layerRepresentation = NSImage(size: size)
     }
     
-    // When setting the scale factor, we must also update the cached representation of the
-    // layer
-    var scaleFactor: CGFloat = 1.0 {
-        didSet {
-            updateCache()
-        }
-    }
-    
-    // Calculate the layer size based on the current scale factor
-    var scaledSize: CGSize {
-        return CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
-    }
     
     // The rectangle representation of the layer (AppKit variant)
     var rect: NSRect {
@@ -67,79 +54,54 @@ class PixelLayer {
             return
         }
         
-        let bitmap = NSBitmapImageRep(data: imageData)
-        
-        // The coordinate system is actually flipped relative to how we actually see the image.
-        // Correct this
-        for y in 0..<Int(size.height) {
-            for x in 0..<Int(size.width) {
-                if let i = index(forPixelPoint: PixelPoint(x: x, y: y))? {
-                    data[i] = bitmap.colorAtX(x, y: Int(size.height) - y - 1).toUInt32()
-                }
-            }
+        if let layer = layerRepresentation? {
+            let importImage = NSImage(data: imageData)
+            layer.lockFocus()
+            
+            // Keep track of the context's previous settings. We're going to be altering them temporarily so
+            // that we can do a pixellated scale.
+            let graphicsContext = NSGraphicsContext.currentContext()
+            let wasAntialiasing = graphicsContext.shouldAntialias
+            let previousImageInterpolation = graphicsContext.imageInterpolation
+            graphicsContext.shouldAntialias = false
+            graphicsContext.imageInterpolation = .None
+            
+            // Draw the new import image into the layer
+            let importRect = NSRect(origin: CGPointZero, size: NSSizeToCGSize(importImage.size))
+            importImage.drawInRect(rect, fromRect: importRect, operation: .CompositeSourceOver, fraction: 1.0)
+            
+            // Restore previous settings
+            graphicsContext.shouldAntialias = wasAntialiasing
+            graphicsContext.imageInterpolation = previousImageInterpolation
+            
+            
+            layer.unlockFocus()
         }
         
-        updateCache()
-    }
-    
-    
-    // Calculate the index for a PixelPoint
-    func index(forPixelPoint point: PixelPoint) -> Int? {
-        if point.x < 0 || point.y < 0 || point.x >= Int(size.width) || point.y >= Int(size.height) {
-            return nil
-        }
-        return Int( point.y * Int(size.width) + point.x )
-    }
-    
-    // Calculate the PixelPoint for a given index
-    func pixelPoint(forIndex index: Int) -> PixelPoint? {
-        if index < 0 || index >= countElements(data) {
-            return nil
-        }
-        
-        let x = Int(countElements(data) % Int(size.width))
-        let y = Int(countElements(data) / Int(size.height))
-        
-        return PixelPoint(x: x, y: y)
     }
     
     
     // Update the specified pixel in the layer data and trigger a redraw of the layer
     // cached representation
     func setPixel(atPoint point: PixelPoint, toColor color: NSColor) {
-        if let i = index(forPixelPoint: point)? {
-            data[i] = color.toUInt32()
-            updateCache()
+        if let layer = layerRepresentation? {
+            layer.lockFocus()
+            
+            color.setFill()
+            NSBezierPath(rect: NSRect(x: point.x, y: point.y, width: 1, height: 1)).fill()
+            
+            layer.unlockFocus()
         }
     }
     
     // This will return NSColor.clearColor if there is no data for the pixel available.
     func pixelColor(atPoint point: PixelPoint) -> NSColor {
-        if let i = index(forPixelPoint: point)? {
-            return NSColor(encodedInt32Value: data[i])
+        if let layer = layerRepresentation? {
+            // Grab a bitmap representation of the image and pull the color from it.
+            let bitmap = NSBitmapImageRep(data: layer.TIFFRepresentation)
+            return bitmap.colorAtX(point.x, y: point.y)
         }
         return NSColor.clearColor()
-    }
-    
-    
-    // Update the cachedRepresentation of the layer
-    func updateCache() {
-        var layer = NSImage(size: NSSizeFromCGSize(size))
-        layer.lockFocus()
-        
-        for y in 0..<Int(size.height) {
-            for x in 0..<Int(size.width) {
-                let color = pixelColor(atPoint: PixelPoint(x: x, y: y))
-                let pixelLocation = CGPoint(x: CGFloat(x), y: CGFloat(y))
-                let pixelSize = CGSize(width: 1, height: 1)
-                
-                color.setFill()
-                NSBezierPath(rect: CGRect(origin: pixelLocation, size: pixelSize)).fill()
-            }
-        }
-        
-        layer.unlockFocus()
-        cachedRepresentation = layer
     }
     
 }

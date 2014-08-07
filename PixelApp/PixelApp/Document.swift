@@ -32,6 +32,7 @@ class Document: NSDocument {
     // Colors Palette Pane
     @IBOutlet var colorPalettePane: NSCollectionView?
     @IBOutlet var activeColorView: ColorSwatchActiveView?
+    @IBOutlet var colorPaletteArrayController: NSArrayController?
     var colorSwatch = ColorSwatch()
     
 
@@ -114,6 +115,12 @@ class Document: NSDocument {
         if let actualURL = url? {
             colorSwatch.removeAll()
             colorSwatch.add(colorsFromImageAtURL: actualURL)
+            colorPaletteArrayController!.rearrangeObjects()
+            
+            // Below is an ugly hack to make sure the array controller responsible for the color palette is
+            // always up to date
+            colorPaletteArrayController!.insertObject(NSColor.blackColor(), atArrangedObjectIndex: 0)
+            colorPaletteArrayController!.removeObjectAtArrangedObjectIndex(0)
         }
     }
     

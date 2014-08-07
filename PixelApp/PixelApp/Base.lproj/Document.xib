@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="activeColorView" destination="aXH-dN-9Nw" id="vx9-w8-cJO"/>
                 <outlet property="brushSize" destination="X3M-55-Cs4" id="whc-Y0-nzp"/>
+                <outlet property="colorPaletteArrayController" destination="6b4-s9-THS" id="Lpw-JS-EXz"/>
                 <outlet property="colorPalettePane" destination="DJ5-G0-4Ta" id="9vA-uK-NKN"/>
                 <outlet property="documentScrollView" destination="EFj-9h-ffk" id="ZXA-ab-fkz"/>
                 <outlet property="layerBlendModePopup" destination="bvW-vb-vug" id="uwu-TM-JDH"/>

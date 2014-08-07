@@ -79,6 +79,20 @@ class PixelEditorView: NSView {
         NSColor.whiteColor().setFill()
         NSBezierPath(rect: NSInsetRect(bounds, 1, 1)).fill()
         
+        // Draw a flattened version of the image on the canvas
+        flattenedImage(atScale: currentScaleFactor).drawInRect(bounds)
+        
+        // Draw the pixel grid lines if they are wanted
+        if wantsPixelGrid {
+            drawPixelGrid()
+        }
+    }
+    
+    func flattenedImage(atScale imageScale: CGFloat) -> NSImage {
+        let imageScaledSize = NSSize(width: actualSize.width * imageScale, height: actualSize.height * imageScale)
+        let image = NSImage(size: imageScaledSize)
+        image.lockFocus()
+        
         let graphicsContext = NSGraphicsContext.currentContext()
         let wasAntialiasing = graphicsContext.shouldAntialias
         let previousImageInterpolation = graphicsContext.imageInterpolation
@@ -93,7 +107,7 @@ class PixelEditorView: NSView {
             }
             
             if let rep = pixelLayer.layerRepresentation? {
-                rep.drawInRect(bounds,
+                rep.drawInRect(NSRect(origin: CGPointZero, size: imageScaledSize),
                     fromRect: pixelLayer.rect,
                     operation: NSCompositingOperation.CompositeSourceOver,
                     fraction: pixelLayer.opacity)
@@ -103,11 +117,10 @@ class PixelEditorView: NSView {
         graphicsContext.shouldAntialias = wasAntialiasing
         graphicsContext.imageInterpolation = previousImageInterpolation
         
-        // Draw the pixel grid lines if they are wanted
-        if wantsPixelGrid {
-            drawPixelGrid()
-        }
+        image.unlockFocus()
+        return image
     }
+    
     
     override func mouseDown(theEvent: NSEvent!) {
         drawPixel(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil))

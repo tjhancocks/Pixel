@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixelApp/Pixel Editor/PixelEditorView.swift"
-            timestampString = "429109967.155243"
+            timestampString = "429130668.575732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "addPixelLayer()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PixelApp/Pixel Editor/PixelEditorView.swift"
-            timestampString = "429109967.155243"
+            timestampString = "429130668.575732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "setBaseImage(_:ofLayerAtIndex:)"
             landmarkType = "5">
             <Locations>
@@ -77,6 +77,98 @@
                   startingLineNumber = "132"
                   endingLineNumber = "132"
                   offsetFromSymbolStart = "781">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PixelApp/Pixel Editor/PixelEditorView.swift"
+            timestampString = "429130805.202113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "flattenedImage(atScale:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PixelApp.PixelEditorView.flattenedImage (PixelApp.PixelEditorView)(atScale : CoreGraphics.CGFloat) -&gt; ObjectiveC.NSImage"
+                  moduleName = "PixelApp"
+                  urlString = "file:///Users/tomhancocks/Documents/Open%20Source%20Apps/Pixel/PixelApp/PixelApp/Pixel%20Editor/PixelEditorView.swift"
+                  timestampString = "429130808.269341"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PixelApp.PixelEditorView.flattenedImage (PixelApp.PixelEditorView)(atScale : CoreGraphics.CGFloat) -&gt; ObjectiveC.NSImage"
+                  moduleName = "PixelApp"
+                  urlString = "file:///Users/tomhancocks/Documents/Open%20Source%20Apps/Pixel/PixelApp/PixelApp/Pixel%20Editor/PixelEditorView.swift"
+                  timestampString = "429130808.269493"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PixelApp/Document.swift"
+            timestampString = "429130832.409556"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "exportImage(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PixelApp.Document.exportImage (PixelApp.Document)(Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "PixelApp"
+                  urlString = "file:///Users/tomhancocks/Documents/Open%20Source%20Apps/Pixel/PixelApp/PixelApp/Document.swift"
+                  timestampString = "429131054.237741"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "2998">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PixelApp.Document.exportImage (PixelApp.Document)(Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "PixelApp"
+                  urlString = "file:///Users/tomhancocks/Documents/Open%20Source%20Apps/Pixel/PixelApp/PixelApp/Document.swift"
+                  timestampString = "429131054.237976"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "3046">
                </Location>
             </Locations>
          </BreakpointContent>

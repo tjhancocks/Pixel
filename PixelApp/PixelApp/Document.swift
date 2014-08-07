@@ -102,6 +102,28 @@ class Document: NSDocument {
     }
     
     
+    // Retrieve a flattened version of the image, as it currently appears in the editor and then export it
+    // to file system using the requested settings.
+    // TODO! - Export Settings. Currently only PNG Exports are supported
+    @IBAction func exportImage(sender: AnyObject!) {
+        let savePanel = NSSavePanel()
+        savePanel.prompt = "Export"
+        savePanel.allowedFileTypes = ["png", "PNG"]
+        savePanel.canCreateDirectories = true
+        savePanel.nameFieldStringValue = "Export.png"
+
+        if savePanel.runModal() == NSOKButton {
+            let image = documentEditorView!.flattenedImage(atScale: 1.0)
+            let imageData = image.TIFFRepresentation
+            let imageRepresentation = NSBitmapImageRep(data: imageData)
+            imageRepresentation.size = image.size
+            
+            let pngData = imageRepresentation.representationUsingType(.NSPNGFileType, properties: nil)
+            pngData.writeToURL(savePanel.URL, options: .DataWritingAtomic, error: nil)
+        }
+    }
+    
+    
     /// Create a new canvas at the specified size and scale
     func createEditorCanvasView(#name: String, ofSize size: CGSize, atScale scale: CGFloat, withBaseImageURL url: NSURL?) {
         var canvasFrame = NSRect(x: 0, y: 0, width: size.width * scale, height: size.height * scale)

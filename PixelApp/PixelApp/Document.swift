@@ -114,9 +114,7 @@ class Document: NSDocument {
 
         if savePanel.runModal() == NSOKButton {
             let image = documentEditorView!.flattenedImage(atScale: 1.0)
-            let imageData = image.TIFFRepresentation
-            let imageRepresentation = NSBitmapImageRep(data: imageData)
-            imageRepresentation.size = image.size
+            let imageRepresentation = image.unscaledBitmapImageRep()
             
             let pngData = imageRepresentation.representationUsingType(.NSPNGFileType, properties: nil)
             pngData.writeToURL(savePanel.URL, options: .DataWritingAtomic, error: nil)

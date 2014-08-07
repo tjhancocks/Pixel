@@ -22,6 +22,7 @@
 		804B6FBC198ECBB700418E08 /* NewDocumentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 804B6FBA198ECBB700418E08 /* NewDocumentController.xib */; };
 		804B6FBE198FD0F000418E08 /* ColorSwatchActiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804B6FBD198FD0F000418E08 /* ColorSwatchActiveView.swift */; };
 		8059E425198E0E1E006E1253 /* PaneActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059E424198E0E1E006E1253 /* PaneActionBar.swift */; };
+		80B04F9419940FA400F77C0A /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B04F9319940FA400F77C0A /* NSImage+Extensions.swift */; };
 		80FCF8AE198D694D00B87341 /* PixelEditorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */; };
 		80FCF8B0198D6A3B00B87341 /* PixelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		804B6FBA198ECBB700418E08 /* NewDocumentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewDocumentController.xib; path = "New Document/NewDocumentController.xib"; sourceTree = "<group>"; };
 		804B6FBD198FD0F000418E08 /* ColorSwatchActiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSwatchActiveView.swift; path = "Color Swatch/ColorSwatchActiveView.swift"; sourceTree = "<group>"; };
 		8059E424198E0E1E006E1253 /* PaneActionBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaneActionBar.swift; path = View/PaneActionBar.swift; sourceTree = "<group>"; };
+		80B04F9319940FA400F77C0A /* NSImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSImage+Extensions.swift"; path = "Categories/NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		80FCF8AD198D694D00B87341 /* PixelEditorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorLayer.swift; path = "Pixel Editor/PixelEditorLayer.swift"; sourceTree = "<group>"; };
 		80FCF8AF198D6A3B00B87341 /* PixelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelPoint.swift; path = "Pixel Editor/PixelPoint.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				8006FF68198E71B000430E73 /* NSColor+Extensions.swift */,
+				80B04F9319940FA400F77C0A /* NSImage+Extensions.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				80486F56198E968500B34D0E /* ColorSwatchItemView.swift in Sources */,
 				800FD8CC198D37BA00F07127 /* main.swift in Sources */,
 				8006FF69198E71B000430E73 /* NSColor+Extensions.swift in Sources */,
+				80B04F9419940FA400F77C0A /* NSImage+Extensions.swift in Sources */,
 				800FD8EE198D3D8E00F07127 /* PixelEditorView.swift in Sources */,
 				80486F54198E898F00B34D0E /* ColorSwatch.swift in Sources */,
 			);

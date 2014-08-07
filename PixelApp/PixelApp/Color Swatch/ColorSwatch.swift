@@ -35,6 +35,17 @@ class ColorSwatch: NSObject {
     
     /// Build a swatch using colors from an image
     init(colorsFromImageAtURL url: NSURL?) {
+        super.init()
+        add(colorsFromImageAtURL: url)
+    }
+    
+    /// Add a new color to the swatch
+    func add(#color: NSColor) {
+        colors.append(color)
+    }
+    
+    /// Add all colors from the contents of a file
+    func add(colorsFromImageAtURL url: NSURL?) {
         if let actualURL = url? {
             // We need to keep a store of all the colors that we find that can be used
             // to ensure we don't get duplicates
@@ -66,12 +77,6 @@ class ColorSwatch: NSObject {
                 }
             }
         }
-        super.init()
-    }
-    
-    /// Add a new color to the swatch
-    func add(#color: NSColor) {
-        colors.append(color)
     }
     
     /// Remove an existing color from the swatch

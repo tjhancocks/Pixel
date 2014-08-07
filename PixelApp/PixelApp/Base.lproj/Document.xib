@@ -219,17 +219,19 @@
                                                 </connections>
                                             </stepper>
                                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-AY-NXB">
-                                                <rect key="frame" x="64" y="200" width="134" height="20"/>
+                                                <rect key="frame" x="64" y="200" width="130" height="20"/>
                                                 <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="vZL-lz-x3U">
                                                     <font key="font" metaFont="smallSystem"/>
                                                     <segments>
-                                                        <segment image="PencilTemplate" imageScaling="none">
+                                                        <segment image="PencilTemplate" imageScaling="none" selected="YES">
                                                             <nil key="label"/>
                                                         </segment>
-                                                        <segment label="E" selected="YES" tag="1"/>
-                                                        <segment label="L"/>
-                                                        <segment label="S"/>
-                                                        <segment label="O"/>
+                                                        <segment image="EraserTemplate" imageScaling="none" tag="1">
+                                                            <nil key="label"/>
+                                                        </segment>
+                                                        <segment label="L" enabled="NO"/>
+                                                        <segment label="S" enabled="NO"/>
+                                                        <segment label="O" enabled="NO"/>
                                                     </segments>
                                                 </segmentedCell>
                                             </segmentedControl>
@@ -293,7 +295,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b54-ru-fJb">
-                                                <rect key="frame" x="0.0" y="32" width="202.5" height="206"/>
+                                                <rect key="frame" x="0.0" y="32" width="203" height="206"/>
                                                 <clipView key="contentView" id="BNK-sm-VDR">
                                                     <rect key="frame" x="1" y="17" width="238" height="117"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -475,7 +477,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
-            <point key="canvasLocation" x="-390" y="7.5"/>
+            <point key="canvasLocation" x="-496" y="34.5"/>
         </window>
         <collectionViewItem id="X62-Yg-2bW">
             <connections>
@@ -483,11 +485,11 @@
             </connections>
         </collectionViewItem>
         <view id="qOb-D2-ZIx" customClass="ColorSwatchItemView" customModule="PixelApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+            <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V8v-HQ-2b3">
-                    <rect key="frame" x="1" y="1" width="30" height="30"/>
+                    <rect key="frame" x="1" y="1" width="16" height="16"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="40N-TD-q5X"/>
                     <connections>
                         <binding destination="X62-Yg-2bW" name="value" keyPath="representedObject.previewImage" id="9SP-L0-TR8"/>
@@ -496,11 +498,15 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="V8v-HQ-2b3" secondAttribute="bottom" constant="1" id="9Lg-6j-OwC"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="V8v-HQ-2b3" secondAttribute="trailing" constant="1" id="Byu-5E-Wl6"/>
                 <constraint firstAttribute="trailing" secondItem="V8v-HQ-2b3" secondAttribute="trailing" constant="1" id="CAY-r1-Ddl"/>
+                <constraint firstItem="V8v-HQ-2b3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qOb-D2-ZIx" secondAttribute="leading" constant="1" id="McA-Xa-G3c"/>
                 <constraint firstItem="V8v-HQ-2b3" firstAttribute="leading" secondItem="qOb-D2-ZIx" secondAttribute="leading" constant="1" id="TOB-Pw-izA"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="V8v-HQ-2b3" secondAttribute="bottom" constant="1" id="fQq-Bq-kim"/>
                 <constraint firstItem="V8v-HQ-2b3" firstAttribute="top" secondItem="qOb-D2-ZIx" secondAttribute="top" constant="1" id="kDh-YH-FQL"/>
+                <constraint firstItem="V8v-HQ-2b3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qOb-D2-ZIx" secondAttribute="top" constant="1" id="zLa-Hc-CTr"/>
             </constraints>
-            <point key="canvasLocation" x="-368" y="403"/>
+            <point key="canvasLocation" x="-375" y="396"/>
         </view>
         <arrayController objectClassName="NSColor" id="6b4-s9-THS" userLabel="ColorSwatch Array">
             <declaredKeys>
@@ -513,9 +519,10 @@
         <userDefaultsController representsSharedInstance="YES" id="fUo-xn-rHS"/>
     </objects>
     <resources>
+        <image name="EraserTemplate" width="12" height="12"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSQuickLookTemplate" width="19" height="12"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
-        <image name="PencilTemplate" width="16" height="16"/>
+        <image name="PencilTemplate" width="12" height="12"/>
     </resources>
 </document>

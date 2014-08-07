@@ -112,7 +112,8 @@ class Document: NSDocument {
         documentEditorView!.currentScaleFactor = scale
         
         if let actualURL = url? {
-            colorSwatch = ColorSwatch(colorsFromImageAtURL: actualURL)
+            colorSwatch.removeAll()
+            colorSwatch.add(colorsFromImageAtURL: actualURL)
         }
     }
     

@@ -17,16 +17,15 @@ Current features of the editor are:
 - Layer Visibility
 - Layer Opacity
 - Canvas Scaling/Zooming
+- Brush/Pen Sizes (Slightly broken, and need to explore a better way of presenting the option)
+- Export to PNG, etc (No fully in, as it needs to give options to export to JPG and scale)
 
 
 Planned features of the editor include:
-
-- Brush/Pen Sizes
 - Shapes (Lines, Rectangles, Ovals, etc)
 - Flood Filling
 - Layer Blending
 - Saving/Opening using a custom file format to allow the Colour Swatches and Layers to be saved
-- Export to PNG, JPG, etc
 
 
 ###Why?

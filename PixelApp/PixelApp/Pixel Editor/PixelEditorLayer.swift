@@ -94,6 +94,26 @@ class PixelLayer {
         }
     }
     
+    //
+    func drawCircle(atPoint point: PixelPoint, toColor color: NSColor, withRadius r: CGFloat, andSolid s: Bool) {
+        if let layer = layerRepresentation? {
+            layer.lockFocus()
+            
+            color.set()
+            var rect = NSInsetRect(NSRect(x: point.x, y: point.y, width: 0, height: 0), -r, -r)
+            
+            if s {
+                NSBezierPath(ovalInRect: rect).fill()
+            }
+            else {
+                NSBezierPath(ovalInRect: rect).stroke()
+            }
+            
+            layer.unlockFocus()
+        }
+    }
+    
+    
     // This will return NSColor.clearColor if there is no data for the pixel available.
     func pixelColor(atPoint point: PixelPoint) -> NSColor {
         if let layer = layerRepresentation? {

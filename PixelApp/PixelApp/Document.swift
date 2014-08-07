@@ -145,6 +145,11 @@ class Document: NSDocument {
     }
     
     
+    @IBAction func updateBrush(sender: AnyObject!) {
+        documentEditorView!.brushSize = brushSize!.integerValue
+    }
+    
+    
     /// Action to add a new layer to the editor
     @IBAction func addLayer(sender: AnyObject!) {
         documentEditorView!.addPixelLayer()

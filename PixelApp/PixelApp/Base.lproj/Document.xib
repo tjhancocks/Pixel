@@ -211,12 +211,15 @@
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
+                                                <connections>
+                                                    <action selector="updateBrush:" target="-2" id="mOs-Nd-JoV"/>
+                                                </connections>
                                             </textField>
                                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKB-fb-1yh">
                                                 <rect key="frame" x="141" y="173" width="15" height="22"/>
                                                 <stepperCell key="cell" controlSize="small" continuous="YES" alignment="left" maxValue="100" id="G0Q-xH-xc9"/>
                                                 <connections>
-                                                    <action selector="takeIntValueFrom:" target="X3M-55-Cs4" id="o8K-7b-9Gf"/>
+                                                    <action selector="updateBrush:" target="-2" id="eio-BV-Xl5"/>
                                                 </connections>
                                             </stepper>
                                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-AY-NXB">
@@ -242,6 +245,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="updateBrush:" target="-2" id="jn1-RV-Iga"/>
+                                                </connections>
                                             </button>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQC-hZ-KSU">
                                                 <rect key="frame" x="7" y="155" width="53" height="14"/>
@@ -296,7 +302,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b54-ru-fJb">
-                                                <rect key="frame" x="0.0" y="32" width="203" height="206"/>
+                                                <rect key="frame" x="0.0" y="32" width="202.5" height="206"/>
                                                 <clipView key="contentView" id="BNK-sm-VDR">
                                                     <rect key="frame" x="1" y="17" width="238" height="117"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

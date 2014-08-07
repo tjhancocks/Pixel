@@ -123,11 +123,13 @@ class PixelEditorView: NSView {
     
     
     override func mouseDown(theEvent: NSEvent!) {
-        drawPixel(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil))
+        draw(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil),
+            usingRadius: CGFloat(brushSize))
     }
     
     override func mouseDragged(theEvent: NSEvent!) {
-        drawPixel(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil))
+        draw(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil),
+            usingRadius: CGFloat(brushSize))
     }
     
     
@@ -146,6 +148,36 @@ class PixelEditorView: NSView {
         
         // Update the view
         setNeedsDisplayInRect(bounds)
+    }
+    
+    ///
+    func drawCircle(locationInView point: CGPoint, usingRadius r: CGFloat, withSolidFill solid: Bool) {
+        // Convert the point to the actual pixel grid
+        let x = Int(floor(point.x / currentScaleFactor))
+        let y = Int(floor(point.y / currentScaleFactor))
+        
+        // Get the active layer
+        let activeLayer = pixelLayers[activePixelLayer]
+        activeLayer.drawCircle(atPoint: PixelPoint(x: x, y: y),
+            toColor: brushColor,
+            withRadius: (r / 2.0),
+            andSolid: solid)
+        
+        // Update the view
+        setNeedsDisplayInRect(bounds)
+    }
+    
+    /// Draw at the specified point using the specified brush radius
+    func draw(locationInView point: CGPoint, usingRadius r: CGFloat = 1.0) {
+        // If the radius is 1 or less, then just draw a pixel. Nice and simple.
+        // For values of r that are larger, then we will need to draw the pixels in the shape
+        // of a solid circle.
+        if r <= 1.0 {
+            drawPixel(locationInView: point)
+        }
+        else {
+            drawCircle(locationInView: point, usingRadius: r, withSolidFill: true)
+        }
     }
     
     

@@ -46,7 +46,7 @@ class ColorSwatch: NSObject {
     
     /// Add all colors from the contents of a file
     func add(colorsFromImageAtURL url: NSURL?) {
-        if let actualURL = url? {
+        if let url = url? {
             // We need to keep a store of all the colors that we find that can be used
             // to ensure we don't get duplicates
             var colorSet = NSMutableSet()
@@ -54,19 +54,19 @@ class ColorSwatch: NSObject {
             var error: NSError?
             let imageData = NSData(contentsOfURL: url,
                 options: NSDataReadingOptions.DataReadingMappedIfSafe,
-                error: &error)
+                error: &error)!
             
             if let e = error? {
                 println("\(e.localizedDescription)")
             }
             else {
-                let bitmap = NSBitmapImageRep(data: imageData)
+                let bitmap = NSBitmapImageRep(data: imageData)!
                 
                 // The coordinate system is actually flipped relative to how we actually see the image.
                 // Correct this
                 for y in 0..<Int(bitmap.size.height) {
                     for x in 0..<Int(bitmap.size.width) {
-                        colorSet.addObject( NSNumber(unsignedInt: bitmap.colorAtX(x, y: y).toUInt32()) )
+                        colorSet.addObject( NSNumber(unsignedInt: bitmap.colorAtX(x, y: y)!.toUInt32()) )
                     }
                 }
                 

@@ -47,7 +47,7 @@ class PixelLayer {
         var error: NSError?
         let imageData = NSData(contentsOfURL: url,
             options: NSDataReadingOptions.DataReadingMappedIfSafe,
-            error: &error)
+            error: &error)!
         
         if let e = error? {
             println("\(e.localizedDescription)")
@@ -55,25 +55,25 @@ class PixelLayer {
         }
         
         if let layer = layerRepresentation? {
-            let importImage = NSImage(data: imageData)
+            let importImage = NSImage(data: imageData)!
             layer.lockFocus()
             
             // Keep track of the context's previous settings. We're going to be altering them temporarily so
             // that we can do a pixellated scale.
-            let graphicsContext = NSGraphicsContext.currentContext()
-            let wasAntialiasing = graphicsContext.shouldAntialias
-            let previousImageInterpolation = graphicsContext.imageInterpolation
-            graphicsContext.shouldAntialias = false
-            graphicsContext.imageInterpolation = .None
-            
-            // Draw the new import image into the layer
-            let importRect = NSRect(origin: CGPointZero, size: NSSizeToCGSize(importImage.size))
-            importImage.drawInRect(rect, fromRect: importRect, operation: .CompositeSourceOver, fraction: 1.0)
-            
-            // Restore previous settings
-            graphicsContext.shouldAntialias = wasAntialiasing
-            graphicsContext.imageInterpolation = previousImageInterpolation
-            
+            if let graphicsContext = NSGraphicsContext.currentContext() {
+                let wasAntialiasing = graphicsContext.shouldAntialias
+                let previousImageInterpolation = graphicsContext.imageInterpolation
+                graphicsContext.shouldAntialias = false
+                graphicsContext.imageInterpolation = .None
+
+                // Draw the new import image into the layer
+                let importRect = NSRect(origin: CGPointZero, size: NSSizeToCGSize(importImage.size))
+                importImage.drawInRect(rect, fromRect: importRect, operation: .CompositeSourceOver, fraction: 1.0)
+
+                // Restore previous settings
+                graphicsContext.shouldAntialias = wasAntialiasing
+                graphicsContext.imageInterpolation = previousImageInterpolation
+            }
             
             layer.unlockFocus()
         }
@@ -118,8 +118,8 @@ class PixelLayer {
     func pixelColor(atPoint point: PixelPoint) -> NSColor {
         if let layer = layerRepresentation? {
             // Grab a bitmap representation of the image and pull the color from it.
-            let bitmap = NSBitmapImageRep(data: layer.TIFFRepresentation)
-            return bitmap.colorAtX(point.x, y: point.y)
+            let bitmap = NSBitmapImageRep(data: layer.TIFFRepresentation!)!
+            return bitmap.colorAtX(point.x, y: point.y)!
         }
         return NSColor.clearColor()
     }

@@ -26,7 +26,7 @@ extension NSImage {
             isPlanar: false,
             colorSpaceName: NSDeviceRGBColorSpace,
             bytesPerRow: 0,
-            bitsPerPixel: 0)
+            bitsPerPixel: 0)!
         
         rep.size = size
         

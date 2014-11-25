@@ -45,7 +45,7 @@ class NewDocumentController: NSWindowController {
             baseImageNameField!.stringValue = baseImageURL!.lastPathComponent.stringByDeletingPathExtension
             
             // Pull in the actual image and then get its dimensions and set them.
-            let image = NSImage(contentsOfURL: openPanel.URL)
+            let image = NSImage(contentsOfURL: openPanel.URL!)!
             canvasWidthField!.integerValue = Int(image.size.width)
             canvasHeightField!.integerValue = Int(image.size.height)
         }
@@ -53,7 +53,7 @@ class NewDocumentController: NSWindowController {
     
     @IBAction func validateCanvasSizeInput(sender: AnyObject!) {
         let field = sender as NSTextField
-        
+
         if field.integerValue < 1 {
             let alert = NSAlert()
             alert.addButtonWithTitle("OK")
@@ -68,10 +68,12 @@ class NewDocumentController: NSWindowController {
     }
     
     @IBAction func cancel(sender: AnyObject!) {
-        if let parent = parentWindow? {
-            parent.endSheet(window, returnCode: NSCancelButton)
+        if let window = window {
+            if let parent = parentWindow? {
+                parent.endSheet(window, returnCode: NSCancelButton)
+            }
+            window.orderOut(sender)
         }
-        window.orderOut(sender)
     }
     
     @IBAction func createDocument(sender: AnyObject!) {
@@ -79,9 +81,11 @@ class NewDocumentController: NSWindowController {
         canvasSize.width = CGFloat(canvasWidthField!.integerValue)
         canvasSize.height = CGFloat(canvasHeightField!.integerValue)
         
-        if let parent = parentWindow? {
-            parent.endSheet(window, returnCode: NSOKButton)
+        if let window = window {
+            if let parent = parentWindow? {
+                parent.endSheet(window, returnCode: NSOKButton)
+            }
+            window.orderOut(sender)
         }
-        window.orderOut(sender)
     }
 }

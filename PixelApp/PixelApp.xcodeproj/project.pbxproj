@@ -53,7 +53,7 @@
 		800FD8EF198D3F1400F07127 /* PixelEditorClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixelEditorClipView.swift; path = "Pixel Editor/PixelEditorClipView.swift"; sourceTree = "<group>"; };
 		80486F53198E898F00B34D0E /* ColorSwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSwatch.swift; path = "Color Swatch/ColorSwatch.swift"; sourceTree = "<group>"; };
 		80486F55198E968500B34D0E /* ColorSwatchItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSwatchItemView.swift; path = "Color Swatch/ColorSwatchItemView.swift"; sourceTree = "<group>"; };
-		804B6FB9198ECBB700418E08 /* NewDocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewDocumentController.swift; path = "New Document/NewDocumentController.swift"; sourceTree = "<group>"; };
+		804B6FB9198ECBB700418E08 /* NewDocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewDocumentController.swift; path = "New Document/NewDocumentController.swift"; sourceTree = "<group>"; wrapsLines = 0; };
 		804B6FBA198ECBB700418E08 /* NewDocumentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewDocumentController.xib; path = "New Document/NewDocumentController.xib"; sourceTree = "<group>"; };
 		804B6FBD198FD0F000418E08 /* ColorSwatchActiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSwatchActiveView.swift; path = "Color Swatch/ColorSwatchActiveView.swift"; sourceTree = "<group>"; };
 		8059E424198E0E1E006E1253 /* PaneActionBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaneActionBar.swift; path = View/PaneActionBar.swift; sourceTree = "<group>"; };
@@ -96,7 +96,9 @@
 				800FD8DE198D37BA00F07127 /* PixelAppTests */,
 				800FD8C7198D37BA00F07127 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		800FD8C7198D37BA00F07127 /* Products */ = {
 			isa = PBXGroup;

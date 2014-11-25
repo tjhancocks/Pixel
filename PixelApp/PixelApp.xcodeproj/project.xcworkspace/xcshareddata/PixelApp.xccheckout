@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>88CA8D26-1F21-4A29-9E20-4C89DC4ACE16</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PixelApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E3F316EC2C677D23E6761D59A95BB3C52DD7D6A7</key>
+		<string>https://github.com/tjhancocks/Pixel.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PixelApp/PixelApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E3F316EC2C677D23E6761D59A95BB3C52DD7D6A7</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tjhancocks/Pixel.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E3F316EC2C677D23E6761D59A95BB3C52DD7D6A7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E3F316EC2C677D23E6761D59A95BB3C52DD7D6A7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Pixel</string>
+		</dict>
+	</array>
+</dict>
+</plist>

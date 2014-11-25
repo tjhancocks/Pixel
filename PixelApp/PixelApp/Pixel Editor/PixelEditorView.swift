@@ -56,7 +56,7 @@ class PixelEditorView: NSView {
         addPixelLayer()
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         pixelLayers = [PixelLayer]()
         super.init(coder: coder)
         addPixelLayer()
@@ -93,41 +93,42 @@ class PixelEditorView: NSView {
         let image = NSImage(size: imageScaledSize)
         image.lockFocus()
         
-        let graphicsContext = NSGraphicsContext.currentContext()
-        let wasAntialiasing = graphicsContext.shouldAntialias
-        let previousImageInterpolation = graphicsContext.imageInterpolation
-        graphicsContext.shouldAntialias = false
-        graphicsContext.imageInterpolation = .None
-        
-        // Draw each of the layers, starting with the backmost layer and working to the front most
-        for pixelLayer in pixelLayers {
-            // If the layer is not visible, then just skip to the next one
-            if !pixelLayer.visibility {
-                continue
+        if let graphicsContext = NSGraphicsContext.currentContext() {
+            let wasAntialiasing = graphicsContext.shouldAntialias
+            let previousImageInterpolation = graphicsContext.imageInterpolation
+            graphicsContext.shouldAntialias = false
+            graphicsContext.imageInterpolation = .None
+
+            // Draw each of the layers, starting with the backmost layer and working to the front most
+            for pixelLayer in pixelLayers {
+                // If the layer is not visible, then just skip to the next one
+                if !pixelLayer.visibility {
+                    continue
+                }
+
+                if let rep = pixelLayer.layerRepresentation? {
+                    rep.drawInRect(NSRect(origin: CGPointZero, size: imageScaledSize),
+                        fromRect: pixelLayer.rect,
+                        operation: NSCompositingOperation.CompositeSourceOver,
+                        fraction: pixelLayer.opacity)
+                }
             }
-            
-            if let rep = pixelLayer.layerRepresentation? {
-                rep.drawInRect(NSRect(origin: CGPointZero, size: imageScaledSize),
-                    fromRect: pixelLayer.rect,
-                    operation: NSCompositingOperation.CompositeSourceOver,
-                    fraction: pixelLayer.opacity)
-            }
+
+            graphicsContext.shouldAntialias = wasAntialiasing
+            graphicsContext.imageInterpolation = previousImageInterpolation
         }
-        
-        graphicsContext.shouldAntialias = wasAntialiasing
-        graphicsContext.imageInterpolation = previousImageInterpolation
         
         image.unlockFocus()
         return image
     }
     
     
-    override func mouseDown(theEvent: NSEvent!) {
+    override func mouseDown(theEvent: NSEvent) {
         draw(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil),
             usingRadius: CGFloat(brushSize))
     }
     
-    override func mouseDragged(theEvent: NSEvent!) {
+    override func mouseDragged(theEvent: NSEvent) {
         draw(locationInView: convertPoint(theEvent.locationInWindow, fromView: nil),
             usingRadius: CGFloat(brushSize))
     }

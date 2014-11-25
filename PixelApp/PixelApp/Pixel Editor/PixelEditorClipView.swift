@@ -14,26 +14,31 @@ class PixelEditorClipView: NSClipView {
     
     override func constrainBoundsRect(proposedBounds: NSRect) -> NSRect {
         var constrainedClipViewBoundsRect: NSRect = super.constrainBoundsRect(proposedBounds)
-        var documentViewFrameRect = documentView.frame
-        
-        if !self.centersDocumentView {
+
+        if let documentView = documentView as? NSView {
+            var documentViewFrameRect = documentView.frame
+
+            if !self.centersDocumentView {
+                return constrainedClipViewBoundsRect
+            }
+
+            var proposedWidth = CGRectGetWidth(constrainedClipViewBoundsRect)
+            var proposedHeight = CGRectGetHeight(constrainedClipViewBoundsRect)
+            var frameWidth = CGRectGetWidth(documentViewFrameRect)
+            var frameHeight = CGRectGetHeight(documentViewFrameRect)
+
+            if proposedWidth >= frameWidth {
+                constrainedClipViewBoundsRect.origin.x = floor((proposedWidth - frameWidth) / -2.0)
+            }
+
+            if proposedHeight >= frameHeight {
+                constrainedClipViewBoundsRect.origin.y = floor((proposedHeight - frameHeight) / -2.0)
+            }
+            
             return constrainedClipViewBoundsRect
         }
-        
-        var proposedWidth = CGRectGetWidth(constrainedClipViewBoundsRect)
-        var proposedHeight = CGRectGetHeight(constrainedClipViewBoundsRect)
-        var frameWidth = CGRectGetWidth(documentViewFrameRect)
-        var frameHeight = CGRectGetHeight(documentViewFrameRect)
-        
-        if proposedWidth >= frameWidth {
-            constrainedClipViewBoundsRect.origin.x = floor((proposedWidth - frameWidth) / -2.0)
-        }
-        
-        if proposedHeight >= frameHeight {
-            constrainedClipViewBoundsRect.origin.y = floor((proposedHeight - frameHeight) / -2.0)
-        }
-        
-        return constrainedClipViewBoundsRect
+
+        return proposedBounds
     }
     
 }

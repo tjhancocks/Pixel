@@ -42,17 +42,19 @@ class Document: NSDocument {
         dispatch_after(500000, dispatch_get_main_queue()) {
             self.newDocumentSheet = NewDocumentController()
             self.newDocumentSheet!.parentWindow = aController.window
-            aController.window.beginSheet(self.newDocumentSheet!.window) {
-                (response) -> Void in
-                
-                if response == NSOKButton {
-                    self.createEditorCanvasView(name: self.newDocumentSheet!.documentName,
-                        ofSize: self.newDocumentSheet!.canvasSize,
-                        atScale: 5.0,
-                        withBaseImageURL: self.newDocumentSheet!.baseImageURL)
-                }
-                else {
-                    aController.close()
+            if let window = aController.window {
+                window.beginSheet(self.newDocumentSheet!.window!) {
+                    (response) -> Void in
+
+                    if response == NSOKButton {
+                        self.createEditorCanvasView(name: self.newDocumentSheet!.documentName,
+                            ofSize: self.newDocumentSheet!.canvasSize,
+                            atScale: 5.0,
+                            withBaseImageURL: self.newDocumentSheet!.baseImageURL)
+                    }
+                    else {
+                        aController.close()
+                    }
                 }
             }
         }
@@ -69,7 +71,7 @@ class Document: NSDocument {
             }
             
             scalePopUp!.addItemWithTitle("\(scale)%")
-            scalePopUp!.lastItem.tag = scale
+            scalePopUp!.lastItem!.tag = scale
         }
         scalePopUp!.selectItemWithTag(500)
         
@@ -92,12 +94,12 @@ class Document: NSDocument {
     }
 
     override func dataOfType(typeName: String?, error outError: NSErrorPointer) -> NSData? {
-        outError.memory = NSError.errorWithDomain(NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+        outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         return nil
     }
 
     override func readFromData(data: NSData?, ofType typeName: String?, error outError: NSErrorPointer) -> Bool {
-        outError.memory = NSError.errorWithDomain(NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+        outError.memory = NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         return false
     }
     
@@ -115,9 +117,10 @@ class Document: NSDocument {
         if savePanel.runModal() == NSOKButton {
             let image = documentEditorView!.flattenedImage(atScale: 1.0)
             let imageRepresentation = image.unscaledBitmapImageRep()
-            
-            let pngData = imageRepresentation.representationUsingType(.NSPNGFileType, properties: nil)
-            pngData.writeToURL(savePanel.URL, options: .DataWritingAtomic, error: nil)
+
+            let properties = [NSObject : AnyObject]()
+            let pngData = imageRepresentation.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: properties)!
+            pngData.writeToURL(savePanel.URL!, options: .DataWritingAtomic, error: nil)
         }
     }
     
@@ -191,7 +194,7 @@ class Document: NSDocument {
     }
     
     
-    override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<()>) {
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<()>) {
         
         // Listen for any changes to the selection of the color palette
         if (object as NSCollectionView) == colorPalettePane && keyPath == "selectionIndexes" {

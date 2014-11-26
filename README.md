@@ -1,6 +1,8 @@
 Pixel
 =====
 
+**IMPORTANT:** I'm currently heavily refactoring this project to make it a better codebase and structure. Much of this code was produced when Swift was still very new and very much changing.
+
 A simple pixel art editor written in Swift.
 
 ![Screenshot](https://raw.githubusercontent.com/tjhancocks/Pixel/master/Preview%20Images/PixelPreviewSMB.png)
